@@ -1,0 +1,997 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CC3C283D259CEA92009E58A0 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3C283C259CEA92009E58A0 /* AuthService.swift */; };
+		CC3C2840259F0EBE009E58A0 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3C283F259F0EBE009E58A0 /* AuthViewModel.swift */; };
+		CC3C2843259F145B009E58A0 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3C2842259F145B009E58A0 /* AuthViewController.swift */; };
+		CC3C2846259F14B8009E58A0 /* AuthViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3C2845259F14B8009E58A0 /* AuthViewModelType.swift */; };
+		CC3C2848259F1BB0009E58A0 /* AuthTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3C2847259F1BB0009E58A0 /* AuthTextField.swift */; };
+		CC5913A82597B57F00700A96 /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5913A72597B57F00700A96 /* FirestoreManager.swift */; };
+		CC5DD0C8258B855A0002AED3 /* SincActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5DD0C7258B855A0002AED3 /* SincActivityView.swift */; };
+		CC7861B425963CAC00754DB0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CC7861B325963CAC00754DB0 /* GoogleService-Info.plist */; };
+		CC87CA19257FD9B200D9B9AB /* (null) in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CC8DAC992581320600F47B25 /* StoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8DAC982581320600F47B25 /* StoreDataManager.swift */; };
+		CC921EF8257E6835004F2B39 /* document.pdf in Resources */ = {isa = PBXBuildFile; fileRef = CC921EF7257E6835004F2B39 /* document.pdf */; };
+		CC9932EB258115380038F603 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9932EA258115380038F603 /* RealmManager.swift */; };
+		CCA5C85E2579E30200BFEF91 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA5C85D2579E30200BFEF91 /* AppDelegate.swift */; };
+		CCA5C8602579E30200BFEF91 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA5C85F2579E30200BFEF91 /* SceneDelegate.swift */; };
+		CCA5C8672579E30300BFEF91 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCA5C8662579E30300BFEF91 /* Assets.xcassets */; };
+		CCA5C86A2579E30300BFEF91 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCA5C8682579E30300BFEF91 /* LaunchScreen.storyboard */; };
+		CCA5C8752579E30300BFEF91 /* SmpCardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA5C8742579E30300BFEF91 /* SmpCardTests.swift */; };
+		CCA5C8882579E51B00BFEF91 /* Title+Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA5C8862579E51B00BFEF91 /* Title+Frame.swift */; };
+		CCA5C8892579E51B00BFEF91 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA5C8872579E51B00BFEF91 /* DataManager.swift */; };
+		CCA5C88F2579E52300BFEF91 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA5C88C2579E52300BFEF91 /* Card.swift */; };
+		CCA5C8A32579E52C00BFEF91 /* PerfomanceViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA5C8912579E52C00BFEF91 /* PerfomanceViewModelType.swift */; };
+		CCA5C8A42579E52C00BFEF91 /* PerfomanceCellViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA5C8922579E52C00BFEF91 /* PerfomanceCellViewModelType.swift */; };
+		CCA5C8A52579E52C00BFEF91 /* PreviewViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA5C8942579E52C00BFEF91 /* PreviewViewModelType.swift */; };
+		CCA5C8A62579E52C00BFEF91 /* CardSelectableCellViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA5C8962579E52C00BFEF91 /* CardSelectableCellViewModelType.swift */; };
+		CCA5C8A72579E52C00BFEF91 /* CardViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA5C8972579E52C00BFEF91 /* CardViewModelType.swift */; };
+		CCA5C8A82579E52C00BFEF91 /* CardCellViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA5C8982579E52C00BFEF91 /* CardCellViewModelDelegate.swift */; };
+		CCA5C8A92579E52C00BFEF91 /* CardTextCellViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA5C8992579E52C00BFEF91 /* CardTextCellViewModelType.swift */; };
+		CCA5C8AA2579E52C00BFEF91 /* PatternsCellViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA5C89B2579E52C00BFEF91 /* PatternsCellViewModelType.swift */; };
+		CCA5C8AB2579E52C00BFEF91 /* PatternsViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA5C89C2579E52C00BFEF91 /* PatternsViewModelType.swift */; };
+		CCA5C8AC2579E52C00BFEF91 /* MainViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA5C89E2579E52C00BFEF91 /* MainViewModelType.swift */; };
+		CCA5C8AD2579E52C00BFEF91 /* MainCellViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA5C89F2579E52C00BFEF91 /* MainCellViewModelType.swift */; };
+		CCA5C8AE2579E52C00BFEF91 /* AdditionalViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA5C8A12579E52C00BFEF91 /* AdditionalViewModelType.swift */; };
+		CCA5C8AF2579E52C00BFEF91 /* AdditionalSelectableCellViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA5C8A22579E52C00BFEF91 /* AdditionalSelectableCellViewModelType.swift */; };
+		CCA5C8CC2579E53600BFEF91 /* AdditionalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA5C8B22579E53600BFEF91 /* AdditionalViewModel.swift */; };
+		CCA5C8D02579E53600BFEF91 /* CardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA5C8B62579E53600BFEF91 /* CardViewModel.swift */; };
+		CCA5C8D32579E53600BFEF91 /* CardSelectableCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA5C8B92579E53600BFEF91 /* CardSelectableCellViewModel.swift */; };
+		CCA5C8D52579E53600BFEF91 /* CardTextCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA5C8BB2579E53600BFEF91 /* CardTextCellViewModel.swift */; };
+		CCA5C8D72579E53600BFEF91 /* TextCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA5C8BD2579E53600BFEF91 /* TextCellViewModel.swift */; };
+		CCA5C8DC2579E53600BFEF91 /* SelectableCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA5C8C22579E53600BFEF91 /* SelectableCellViewModel.swift */; };
+		CCA5C8DD2579E53600BFEF91 /* PreviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA5C8C42579E53600BFEF91 /* PreviewViewModel.swift */; };
+		CCA5C8DE2579E53600BFEF91 /* PatternsCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA5C8C62579E53600BFEF91 /* PatternsCellViewModel.swift */; };
+		CCA5C8DF2579E53600BFEF91 /* PatternsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA5C8C72579E53600BFEF91 /* PatternsViewModel.swift */; };
+		CCA5C8E02579E53600BFEF91 /* MainCellVIewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA5C8C92579E53600BFEF91 /* MainCellVIewModel.swift */; };
+		CCA5C8E12579E53600BFEF91 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA5C8CA2579E53600BFEF91 /* MainViewModel.swift */; };
+		CCA5C8F82579E53D00BFEF91 /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA5C8E32579E53C00BFEF91 /* CardViewController.swift */; };
+		CCA5C8F92579E53D00BFEF91 /* CardTextAttributeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA5C8E42579E53C00BFEF91 /* CardTextAttributeTableViewCell.swift */; };
+		CCA5C8FA2579E53D00BFEF91 /* CardSelectableAttributeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA5C8E52579E53C00BFEF91 /* CardSelectableAttributeTableViewCell.swift */; };
+		CCA5C8FB2579E53D00BFEF91 /* CardPerfomanceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA5C8E62579E53C00BFEF91 /* CardPerfomanceTableViewCell.swift */; };
+		CCA5C8FC2579E53D00BFEF91 /* AdditionalSelectableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA5C8E82579E53C00BFEF91 /* AdditionalSelectableTableViewCell.swift */; };
+		CCA5C8FD2579E53D00BFEF91 /* AdditionalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA5C8E92579E53C00BFEF91 /* AdditionalViewController.swift */; };
+		CCA5C9002579E53D00BFEF91 /* AdditionalTextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA5C8EC2579E53C00BFEF91 /* AdditionalTextTableViewCell.swift */; };
+		CCA5C9032579E53D00BFEF91 /* PatternsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA5C8F02579E53D00BFEF91 /* PatternsTableViewCell.swift */; };
+		CCA5C9042579E53D00BFEF91 /* PatternsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA5C8F12579E53D00BFEF91 /* PatternsTableViewController.swift */; };
+		CCA5C9062579E53D00BFEF91 /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA5C8F42579E53D00BFEF91 /* PreviewViewController.swift */; };
+		CCA5C9072579E53D00BFEF91 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA5C8F62579E53D00BFEF91 /* MainViewController.swift */; };
+		CCA5C9082579E53D00BFEF91 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA5C8F72579E53D00BFEF91 /* MainTableViewCell.swift */; };
+		CCD2C7BF25AA0ED000BDC30C /* DataManagerGetSubattributesOfSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD2C7BE25AA0ED000BDC30C /* DataManagerGetSubattributesOfSection.swift */; };
+		CCE589CA258F502C00D026C5 /* Update Realm in Resources */ = {isa = PBXBuildFile; fileRef = CCE589C9258F502C00D026C5 /* Update Realm */; };
+		CCE589CC259295A100D026C5 /* CardDateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE589CB259295A100D026C5 /* CardDateTableViewCell.swift */; };
+		CCE76F10257ABDDB00111C19 /* CardPerfomanceCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE76F0F257ABDDB00111C19 /* CardPerfomanceCellViewModel.swift */; };
+		FD774528C98918E6875959AE /* Pods_SmpCard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D79D252891EFCD518092E596 /* Pods_SmpCard.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CCA5C8712579E30300BFEF91 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CCA5C8522579E30200BFEF91 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CCA5C8592579E30200BFEF91;
+			remoteInfo = SmpCard;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		CC87CA1A257FD9B200D9B9AB /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				CC87CA19257FD9B200D9B9AB /* (null) in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		523BBFA904439BD0854A98FD /* Pods-SmpCard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmpCard.release.xcconfig"; path = "Target Support Files/Pods-SmpCard/Pods-SmpCard.release.xcconfig"; sourceTree = "<group>"; };
+		848BAD927447AD08041B743D /* Pods-SmpCard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmpCard.debug.xcconfig"; path = "Target Support Files/Pods-SmpCard/Pods-SmpCard.debug.xcconfig"; sourceTree = "<group>"; };
+		CC3C283C259CEA92009E58A0 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		CC3C283F259F0EBE009E58A0 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		CC3C2842259F145B009E58A0 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		CC3C2845259F14B8009E58A0 /* AuthViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModelType.swift; sourceTree = "<group>"; };
+		CC3C2847259F1BB0009E58A0 /* AuthTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTextField.swift; sourceTree = "<group>"; };
+		CC5913A72597B57F00700A96 /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
+		CC5DD0C7258B855A0002AED3 /* SincActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SincActivityView.swift; sourceTree = "<group>"; };
+		CC7861B325963CAC00754DB0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CC8DAC982581320600F47B25 /* StoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StoreDataManager.swift; path = "../New Group/StoreDataManager.swift"; sourceTree = "<group>"; };
+		CC921EF7257E6835004F2B39 /* document.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = document.pdf; sourceTree = "<group>"; };
+		CC9932EA258115380038F603 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
+		CCA5C85A2579E30200BFEF91 /* SMP cards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SMP cards.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CCA5C85D2579E30200BFEF91 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CCA5C85F2579E30200BFEF91 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		CCA5C8662579E30300BFEF91 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CCA5C8692579E30300BFEF91 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		CCA5C86B2579E30300BFEF91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CCA5C8702579E30300BFEF91 /* SmpCardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmpCardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CCA5C8742579E30300BFEF91 /* SmpCardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmpCardTests.swift; sourceTree = "<group>"; };
+		CCA5C8762579E30300BFEF91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CCA5C8862579E51B00BFEF91 /* Title+Frame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Title+Frame.swift"; sourceTree = "<group>"; };
+		CCA5C8872579E51B00BFEF91 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		CCA5C88C2579E52300BFEF91 /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		CCA5C8912579E52C00BFEF91 /* PerfomanceViewModelType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerfomanceViewModelType.swift; sourceTree = "<group>"; };
+		CCA5C8922579E52C00BFEF91 /* PerfomanceCellViewModelType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerfomanceCellViewModelType.swift; sourceTree = "<group>"; };
+		CCA5C8942579E52C00BFEF91 /* PreviewViewModelType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewViewModelType.swift; sourceTree = "<group>"; };
+		CCA5C8962579E52C00BFEF91 /* CardSelectableCellViewModelType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardSelectableCellViewModelType.swift; sourceTree = "<group>"; };
+		CCA5C8972579E52C00BFEF91 /* CardViewModelType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardViewModelType.swift; sourceTree = "<group>"; };
+		CCA5C8982579E52C00BFEF91 /* CardCellViewModelDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardCellViewModelDelegate.swift; sourceTree = "<group>"; };
+		CCA5C8992579E52C00BFEF91 /* CardTextCellViewModelType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardTextCellViewModelType.swift; sourceTree = "<group>"; };
+		CCA5C89B2579E52C00BFEF91 /* PatternsCellViewModelType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatternsCellViewModelType.swift; sourceTree = "<group>"; };
+		CCA5C89C2579E52C00BFEF91 /* PatternsViewModelType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatternsViewModelType.swift; sourceTree = "<group>"; };
+		CCA5C89E2579E52C00BFEF91 /* MainViewModelType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewModelType.swift; sourceTree = "<group>"; };
+		CCA5C89F2579E52C00BFEF91 /* MainCellViewModelType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCellViewModelType.swift; sourceTree = "<group>"; };
+		CCA5C8A12579E52C00BFEF91 /* AdditionalViewModelType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdditionalViewModelType.swift; sourceTree = "<group>"; };
+		CCA5C8A22579E52C00BFEF91 /* AdditionalSelectableCellViewModelType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdditionalSelectableCellViewModelType.swift; sourceTree = "<group>"; };
+		CCA5C8B22579E53600BFEF91 /* AdditionalViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdditionalViewModel.swift; sourceTree = "<group>"; };
+		CCA5C8B62579E53600BFEF91 /* CardViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardViewModel.swift; sourceTree = "<group>"; };
+		CCA5C8B92579E53600BFEF91 /* CardSelectableCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardSelectableCellViewModel.swift; sourceTree = "<group>"; };
+		CCA5C8BB2579E53600BFEF91 /* CardTextCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardTextCellViewModel.swift; sourceTree = "<group>"; };
+		CCA5C8BD2579E53600BFEF91 /* TextCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextCellViewModel.swift; sourceTree = "<group>"; };
+		CCA5C8C22579E53600BFEF91 /* SelectableCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectableCellViewModel.swift; sourceTree = "<group>"; };
+		CCA5C8C42579E53600BFEF91 /* PreviewViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewViewModel.swift; sourceTree = "<group>"; };
+		CCA5C8C62579E53600BFEF91 /* PatternsCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatternsCellViewModel.swift; sourceTree = "<group>"; };
+		CCA5C8C72579E53600BFEF91 /* PatternsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatternsViewModel.swift; sourceTree = "<group>"; };
+		CCA5C8C92579E53600BFEF91 /* MainCellVIewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCellVIewModel.swift; sourceTree = "<group>"; };
+		CCA5C8CA2579E53600BFEF91 /* MainViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		CCA5C8E32579E53C00BFEF91 /* CardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
+		CCA5C8E42579E53C00BFEF91 /* CardTextAttributeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardTextAttributeTableViewCell.swift; sourceTree = "<group>"; };
+		CCA5C8E52579E53C00BFEF91 /* CardSelectableAttributeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardSelectableAttributeTableViewCell.swift; sourceTree = "<group>"; };
+		CCA5C8E62579E53C00BFEF91 /* CardPerfomanceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardPerfomanceTableViewCell.swift; sourceTree = "<group>"; };
+		CCA5C8E82579E53C00BFEF91 /* AdditionalSelectableTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdditionalSelectableTableViewCell.swift; sourceTree = "<group>"; };
+		CCA5C8E92579E53C00BFEF91 /* AdditionalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdditionalViewController.swift; sourceTree = "<group>"; };
+		CCA5C8EC2579E53C00BFEF91 /* AdditionalTextTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdditionalTextTableViewCell.swift; sourceTree = "<group>"; };
+		CCA5C8F02579E53D00BFEF91 /* PatternsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatternsTableViewCell.swift; sourceTree = "<group>"; };
+		CCA5C8F12579E53D00BFEF91 /* PatternsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatternsTableViewController.swift; sourceTree = "<group>"; };
+		CCA5C8F42579E53D00BFEF91 /* PreviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
+		CCA5C8F62579E53D00BFEF91 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		CCA5C8F72579E53D00BFEF91 /* MainTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
+		CCD2C7BE25AA0ED000BDC30C /* DataManagerGetSubattributesOfSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManagerGetSubattributesOfSection.swift; sourceTree = "<group>"; };
+		CCE589C9258F502C00D026C5 /* Update Realm */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Update Realm"; sourceTree = "<group>"; };
+		CCE589CB259295A100D026C5 /* CardDateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDateTableViewCell.swift; sourceTree = "<group>"; };
+		CCE76F0F257ABDDB00111C19 /* CardPerfomanceCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardPerfomanceCellViewModel.swift; sourceTree = "<group>"; };
+		D79D252891EFCD518092E596 /* Pods_SmpCard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmpCard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CCA5C8572579E30200BFEF91 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD774528C98918E6875959AE /* Pods_SmpCard.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CCA5C86D2579E30300BFEF91 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8072DA01E4BDE941D9A05161 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D79D252891EFCD518092E596 /* Pods_SmpCard.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CC3C283B259CEA7E009E58A0 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				CC3C283C259CEA92009E58A0 /* AuthService.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		CC3C283E259F0EA3009E58A0 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				CC3C283F259F0EBE009E58A0 /* AuthViewModel.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		CC3C2841259F143F009E58A0 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				CC3C2842259F145B009E58A0 /* AuthViewController.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		CC3C2844259F14A1009E58A0 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				CC3C2845259F14B8009E58A0 /* AuthViewModelType.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		CC45E83F25B71382009953E9 /* StoreManager */ = {
+			isa = PBXGroup;
+			children = (
+				CC8DAC982581320600F47B25 /* StoreDataManager.swift */,
+				CC9932EA258115380038F603 /* RealmManager.swift */,
+				CC5913A72597B57F00700A96 /* FirestoreManager.swift */,
+			);
+			path = StoreManager;
+			sourceTree = "<group>";
+		};
+		CCA5C8512579E30200BFEF91 = {
+			isa = PBXGroup;
+			children = (
+				CCA5C85C2579E30200BFEF91 /* SmpCard */,
+				CCA5C8732579E30300BFEF91 /* SmpCardTests */,
+				CCA5C85B2579E30200BFEF91 /* Products */,
+				D8B061EC06FDEFAABB3038E3 /* Pods */,
+				8072DA01E4BDE941D9A05161 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		CCA5C85B2579E30200BFEF91 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CCA5C85A2579E30200BFEF91 /* SMP cards.app */,
+				CCA5C8702579E30300BFEF91 /* SmpCardTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CCA5C85C2579E30200BFEF91 /* SmpCard */ = {
+			isa = PBXGroup;
+			children = (
+				CCD5CDF82579EEF300107027 /* Resources */,
+				CCA5C87F2579E32D00BFEF91 /* App */,
+				CCA5C8802579E33900BFEF91 /* Modules */,
+				CCA5C8662579E30300BFEF91 /* Assets.xcassets */,
+				CCA5C8682579E30300BFEF91 /* LaunchScreen.storyboard */,
+				CCA5C86B2579E30300BFEF91 /* Info.plist */,
+				CC7861B325963CAC00754DB0 /* GoogleService-Info.plist */,
+				CCE589C9258F502C00D026C5 /* Update Realm */,
+			);
+			path = SmpCard;
+			sourceTree = "<group>";
+		};
+		CCA5C8732579E30300BFEF91 /* SmpCardTests */ = {
+			isa = PBXGroup;
+			children = (
+				CCA5C8742579E30300BFEF91 /* SmpCardTests.swift */,
+				CCA5C8762579E30300BFEF91 /* Info.plist */,
+			);
+			path = SmpCardTests;
+			sourceTree = "<group>";
+		};
+		CCA5C87F2579E32D00BFEF91 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				CCA5C85D2579E30200BFEF91 /* AppDelegate.swift */,
+				CCA5C85F2579E30200BFEF91 /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		CCA5C8802579E33900BFEF91 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				CC45E83F25B71382009953E9 /* StoreManager */,
+				CCA5C8812579E35400BFEF91 /* DataManager */,
+				CC3C283B259CEA7E009E58A0 /* Auth */,
+				CCA5C8822579E36200BFEF91 /* Model */,
+				CCA5C8832579E36E00BFEF91 /* Protocols */,
+				CCA5C8842579E37A00BFEF91 /* ViewModel */,
+				CCA5C8852579E38700BFEF91 /* View */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		CCA5C8812579E35400BFEF91 /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				CCA5C8872579E51B00BFEF91 /* DataManager.swift */,
+				CCD2C7BE25AA0ED000BDC30C /* DataManagerGetSubattributesOfSection.swift */,
+				CCA5C8862579E51B00BFEF91 /* Title+Frame.swift */,
+			);
+			path = DataManager;
+			sourceTree = "<group>";
+		};
+		CCA5C8822579E36200BFEF91 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CCA5C88C2579E52300BFEF91 /* Card.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CCA5C8832579E36E00BFEF91 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				CC3C2844259F14A1009E58A0 /* Auth */,
+				CCA5C8A02579E52C00BFEF91 /* Additional */,
+				CCA5C8952579E52C00BFEF91 /* Card */,
+				CCA5C89D2579E52C00BFEF91 /* Main */,
+				CCA5C89A2579E52C00BFEF91 /* Patterns */,
+				CCA5C8902579E52C00BFEF91 /* Perfomance */,
+				CCA5C8932579E52C00BFEF91 /* Preview */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		CCA5C8842579E37A00BFEF91 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CC3C283E259F0EA3009E58A0 /* Auth */,
+				CCA5C9092579E82700BFEF91 /* Additional */,
+				CCA5C8B02579E53600BFEF91 /* Card */,
+				CCA5C8C82579E53600BFEF91 /* Main */,
+				CCA5C8C52579E53600BFEF91 /* Patterns */,
+				CCA5C8C32579E53600BFEF91 /* Preview */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CCA5C8852579E38700BFEF91 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CC5DD0C7258B855A0002AED3 /* SincActivityView.swift */,
+				CC3C2847259F1BB0009E58A0 /* AuthTextField.swift */,
+				CC3C2841259F143F009E58A0 /* Auth */,
+				CCA5C8E72579E53C00BFEF91 /* Additional */,
+				CCA5C8E22579E53C00BFEF91 /* Card */,
+				CCA5C8F52579E53D00BFEF91 /* Main */,
+				CCA5C8EF2579E53D00BFEF91 /* Patterns */,
+				CCA5C8F22579E53D00BFEF91 /* Preview */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CCA5C8902579E52C00BFEF91 /* Perfomance */ = {
+			isa = PBXGroup;
+			children = (
+				CCA5C8912579E52C00BFEF91 /* PerfomanceViewModelType.swift */,
+				CCA5C8922579E52C00BFEF91 /* PerfomanceCellViewModelType.swift */,
+			);
+			path = Perfomance;
+			sourceTree = "<group>";
+		};
+		CCA5C8932579E52C00BFEF91 /* Preview */ = {
+			isa = PBXGroup;
+			children = (
+				CCA5C8942579E52C00BFEF91 /* PreviewViewModelType.swift */,
+			);
+			path = Preview;
+			sourceTree = "<group>";
+		};
+		CCA5C8952579E52C00BFEF91 /* Card */ = {
+			isa = PBXGroup;
+			children = (
+				CCA5C8962579E52C00BFEF91 /* CardSelectableCellViewModelType.swift */,
+				CCA5C8972579E52C00BFEF91 /* CardViewModelType.swift */,
+				CCA5C8982579E52C00BFEF91 /* CardCellViewModelDelegate.swift */,
+				CCA5C8992579E52C00BFEF91 /* CardTextCellViewModelType.swift */,
+			);
+			path = Card;
+			sourceTree = "<group>";
+		};
+		CCA5C89A2579E52C00BFEF91 /* Patterns */ = {
+			isa = PBXGroup;
+			children = (
+				CCA5C89C2579E52C00BFEF91 /* PatternsViewModelType.swift */,
+				CCA5C89B2579E52C00BFEF91 /* PatternsCellViewModelType.swift */,
+			);
+			path = Patterns;
+			sourceTree = "<group>";
+		};
+		CCA5C89D2579E52C00BFEF91 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				CCA5C89E2579E52C00BFEF91 /* MainViewModelType.swift */,
+				CCA5C89F2579E52C00BFEF91 /* MainCellViewModelType.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		CCA5C8A02579E52C00BFEF91 /* Additional */ = {
+			isa = PBXGroup;
+			children = (
+				CCA5C8A12579E52C00BFEF91 /* AdditionalViewModelType.swift */,
+				CCA5C8A22579E52C00BFEF91 /* AdditionalSelectableCellViewModelType.swift */,
+			);
+			path = Additional;
+			sourceTree = "<group>";
+		};
+		CCA5C8B02579E53600BFEF91 /* Card */ = {
+			isa = PBXGroup;
+			children = (
+				CCE76F0F257ABDDB00111C19 /* CardPerfomanceCellViewModel.swift */,
+				CCA5C8B62579E53600BFEF91 /* CardViewModel.swift */,
+				CCA5C8BB2579E53600BFEF91 /* CardTextCellViewModel.swift */,
+				CCA5C8B92579E53600BFEF91 /* CardSelectableCellViewModel.swift */,
+			);
+			path = Card;
+			sourceTree = "<group>";
+		};
+		CCA5C8C32579E53600BFEF91 /* Preview */ = {
+			isa = PBXGroup;
+			children = (
+				CCA5C8C42579E53600BFEF91 /* PreviewViewModel.swift */,
+			);
+			path = Preview;
+			sourceTree = "<group>";
+		};
+		CCA5C8C52579E53600BFEF91 /* Patterns */ = {
+			isa = PBXGroup;
+			children = (
+				CCA5C8C72579E53600BFEF91 /* PatternsViewModel.swift */,
+				CCA5C8C62579E53600BFEF91 /* PatternsCellViewModel.swift */,
+			);
+			path = Patterns;
+			sourceTree = "<group>";
+		};
+		CCA5C8C82579E53600BFEF91 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				CCA5C8CA2579E53600BFEF91 /* MainViewModel.swift */,
+				CCA5C8C92579E53600BFEF91 /* MainCellVIewModel.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		CCA5C8E22579E53C00BFEF91 /* Card */ = {
+			isa = PBXGroup;
+			children = (
+				CCA5C8E32579E53C00BFEF91 /* CardViewController.swift */,
+				CCA5C8E62579E53C00BFEF91 /* CardPerfomanceTableViewCell.swift */,
+				CCA5C8E42579E53C00BFEF91 /* CardTextAttributeTableViewCell.swift */,
+				CCA5C8E52579E53C00BFEF91 /* CardSelectableAttributeTableViewCell.swift */,
+				CCE589CB259295A100D026C5 /* CardDateTableViewCell.swift */,
+			);
+			path = Card;
+			sourceTree = "<group>";
+		};
+		CCA5C8E72579E53C00BFEF91 /* Additional */ = {
+			isa = PBXGroup;
+			children = (
+				CCA5C8E82579E53C00BFEF91 /* AdditionalSelectableTableViewCell.swift */,
+				CCA5C8E92579E53C00BFEF91 /* AdditionalViewController.swift */,
+				CCA5C8EC2579E53C00BFEF91 /* AdditionalTextTableViewCell.swift */,
+			);
+			path = Additional;
+			sourceTree = "<group>";
+		};
+		CCA5C8EF2579E53D00BFEF91 /* Patterns */ = {
+			isa = PBXGroup;
+			children = (
+				CCA5C8F12579E53D00BFEF91 /* PatternsTableViewController.swift */,
+				CCA5C8F02579E53D00BFEF91 /* PatternsTableViewCell.swift */,
+			);
+			path = Patterns;
+			sourceTree = "<group>";
+		};
+		CCA5C8F22579E53D00BFEF91 /* Preview */ = {
+			isa = PBXGroup;
+			children = (
+				CCA5C8F42579E53D00BFEF91 /* PreviewViewController.swift */,
+			);
+			path = Preview;
+			sourceTree = "<group>";
+		};
+		CCA5C8F52579E53D00BFEF91 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				CCA5C8F62579E53D00BFEF91 /* MainViewController.swift */,
+				CCA5C8F72579E53D00BFEF91 /* MainTableViewCell.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		CCA5C9092579E82700BFEF91 /* Additional */ = {
+			isa = PBXGroup;
+			children = (
+				CCA5C8B22579E53600BFEF91 /* AdditionalViewModel.swift */,
+				CCA5C8BD2579E53600BFEF91 /* TextCellViewModel.swift */,
+				CCA5C8C22579E53600BFEF91 /* SelectableCellViewModel.swift */,
+			);
+			path = Additional;
+			sourceTree = "<group>";
+		};
+		CCD5CDF82579EEF300107027 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CC921EF7257E6835004F2B39 /* document.pdf */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		D8B061EC06FDEFAABB3038E3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				848BAD927447AD08041B743D /* Pods-SmpCard.debug.xcconfig */,
+				523BBFA904439BD0854A98FD /* Pods-SmpCard.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CCA5C8592579E30200BFEF91 /* SmpCard */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CCA5C8792579E30300BFEF91 /* Build configuration list for PBXNativeTarget "SmpCard" */;
+			buildPhases = (
+				19A55F735BDE76AECD6655F6 /* [CP] Check Pods Manifest.lock */,
+				CCA5C8562579E30200BFEF91 /* Sources */,
+				CCA5C8572579E30200BFEF91 /* Frameworks */,
+				CCA5C8582579E30200BFEF91 /* Resources */,
+				CC87CA1A257FD9B200D9B9AB /* Embed Frameworks */,
+				20FB58E7519ED9A17DE8B2A4 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SmpCard;
+			productName = SmpCard;
+			productReference = CCA5C85A2579E30200BFEF91 /* SMP cards.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CCA5C86F2579E30300BFEF91 /* SmpCardTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CCA5C87C2579E30300BFEF91 /* Build configuration list for PBXNativeTarget "SmpCardTests" */;
+			buildPhases = (
+				CCA5C86C2579E30300BFEF91 /* Sources */,
+				CCA5C86D2579E30300BFEF91 /* Frameworks */,
+				CCA5C86E2579E30300BFEF91 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CCA5C8722579E30300BFEF91 /* PBXTargetDependency */,
+			);
+			name = SmpCardTests;
+			productName = SmpCardTests;
+			productReference = CCA5C8702579E30300BFEF91 /* SmpCardTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CCA5C8522579E30200BFEF91 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1170;
+				LastUpgradeCheck = 1170;
+				ORGANIZATIONNAME = SMP;
+				TargetAttributes = {
+					CCA5C8592579E30200BFEF91 = {
+						CreatedOnToolsVersion = 11.7;
+					};
+					CCA5C86F2579E30300BFEF91 = {
+						CreatedOnToolsVersion = 11.7;
+						TestTargetID = CCA5C8592579E30200BFEF91;
+					};
+				};
+			};
+			buildConfigurationList = CCA5C8552579E30200BFEF91 /* Build configuration list for PBXProject "SmpCard" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CCA5C8512579E30200BFEF91;
+			productRefGroup = CCA5C85B2579E30200BFEF91 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CCA5C8592579E30200BFEF91 /* SmpCard */,
+				CCA5C86F2579E30300BFEF91 /* SmpCardTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CCA5C8582579E30200BFEF91 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CCE589CA258F502C00D026C5 /* Update Realm in Resources */,
+				CC921EF8257E6835004F2B39 /* document.pdf in Resources */,
+				CC7861B425963CAC00754DB0 /* GoogleService-Info.plist in Resources */,
+				CCA5C86A2579E30300BFEF91 /* LaunchScreen.storyboard in Resources */,
+				CCA5C8672579E30300BFEF91 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CCA5C86E2579E30300BFEF91 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		19A55F735BDE76AECD6655F6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SmpCard-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		20FB58E7519ED9A17DE8B2A4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SmpCard/Pods-SmpCard-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SmpCard/Pods-SmpCard-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SmpCard/Pods-SmpCard-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CCA5C8562579E30200BFEF91 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CCA5C8FD2579E53D00BFEF91 /* AdditionalViewController.swift in Sources */,
+				CCA5C9032579E53D00BFEF91 /* PatternsTableViewCell.swift in Sources */,
+				CCA5C8D52579E53600BFEF91 /* CardTextCellViewModel.swift in Sources */,
+				CCA5C8FA2579E53D00BFEF91 /* CardSelectableAttributeTableViewCell.swift in Sources */,
+				CC5DD0C8258B855A0002AED3 /* SincActivityView.swift in Sources */,
+				CCA5C9002579E53D00BFEF91 /* AdditionalTextTableViewCell.swift in Sources */,
+				CCA5C8D72579E53600BFEF91 /* TextCellViewModel.swift in Sources */,
+				CCA5C8A32579E52C00BFEF91 /* PerfomanceViewModelType.swift in Sources */,
+				CC3C2848259F1BB0009E58A0 /* AuthTextField.swift in Sources */,
+				CC8DAC992581320600F47B25 /* StoreDataManager.swift in Sources */,
+				CCA5C8DF2579E53600BFEF91 /* PatternsViewModel.swift in Sources */,
+				CCA5C8A42579E52C00BFEF91 /* PerfomanceCellViewModelType.swift in Sources */,
+				CCA5C8AB2579E52C00BFEF91 /* PatternsViewModelType.swift in Sources */,
+				CCA5C8A72579E52C00BFEF91 /* CardViewModelType.swift in Sources */,
+				CCA5C8FC2579E53D00BFEF91 /* AdditionalSelectableTableViewCell.swift in Sources */,
+				CCA5C8892579E51B00BFEF91 /* DataManager.swift in Sources */,
+				CCA5C8D32579E53600BFEF91 /* CardSelectableCellViewModel.swift in Sources */,
+				CC3C283D259CEA92009E58A0 /* AuthService.swift in Sources */,
+				CCA5C8E02579E53600BFEF91 /* MainCellVIewModel.swift in Sources */,
+				CCA5C8D02579E53600BFEF91 /* CardViewModel.swift in Sources */,
+				CCA5C8DE2579E53600BFEF91 /* PatternsCellViewModel.swift in Sources */,
+				CCA5C8AF2579E52C00BFEF91 /* AdditionalSelectableCellViewModelType.swift in Sources */,
+				CCA5C8A92579E52C00BFEF91 /* CardTextCellViewModelType.swift in Sources */,
+				CCA5C9062579E53D00BFEF91 /* PreviewViewController.swift in Sources */,
+				CCA5C8F82579E53D00BFEF91 /* CardViewController.swift in Sources */,
+				CC3C2846259F14B8009E58A0 /* AuthViewModelType.swift in Sources */,
+				CCE76F10257ABDDB00111C19 /* CardPerfomanceCellViewModel.swift in Sources */,
+				CCA5C85E2579E30200BFEF91 /* AppDelegate.swift in Sources */,
+				CCA5C8AA2579E52C00BFEF91 /* PatternsCellViewModelType.swift in Sources */,
+				CCA5C8DD2579E53600BFEF91 /* PreviewViewModel.swift in Sources */,
+				CCA5C8AE2579E52C00BFEF91 /* AdditionalViewModelType.swift in Sources */,
+				CCD2C7BF25AA0ED000BDC30C /* DataManagerGetSubattributesOfSection.swift in Sources */,
+				CCA5C9072579E53D00BFEF91 /* MainViewController.swift in Sources */,
+				CC3C2843259F145B009E58A0 /* AuthViewController.swift in Sources */,
+				CCA5C8AC2579E52C00BFEF91 /* MainViewModelType.swift in Sources */,
+				CC5913A82597B57F00700A96 /* FirestoreManager.swift in Sources */,
+				CCA5C8602579E30200BFEF91 /* SceneDelegate.swift in Sources */,
+				CCA5C8A62579E52C00BFEF91 /* CardSelectableCellViewModelType.swift in Sources */,
+				CCA5C8882579E51B00BFEF91 /* Title+Frame.swift in Sources */,
+				CCA5C9042579E53D00BFEF91 /* PatternsTableViewController.swift in Sources */,
+				CCA5C8F92579E53D00BFEF91 /* CardTextAttributeTableViewCell.swift in Sources */,
+				CCA5C8A82579E52C00BFEF91 /* CardCellViewModelDelegate.swift in Sources */,
+				CCA5C9082579E53D00BFEF91 /* MainTableViewCell.swift in Sources */,
+				CCA5C8A52579E52C00BFEF91 /* PreviewViewModelType.swift in Sources */,
+				CC3C2840259F0EBE009E58A0 /* AuthViewModel.swift in Sources */,
+				CCA5C8CC2579E53600BFEF91 /* AdditionalViewModel.swift in Sources */,
+				CCA5C8AD2579E52C00BFEF91 /* MainCellViewModelType.swift in Sources */,
+				CCA5C8FB2579E53D00BFEF91 /* CardPerfomanceTableViewCell.swift in Sources */,
+				CCA5C88F2579E52300BFEF91 /* Card.swift in Sources */,
+				CC9932EB258115380038F603 /* RealmManager.swift in Sources */,
+				CCE589CC259295A100D026C5 /* CardDateTableViewCell.swift in Sources */,
+				CCA5C8DC2579E53600BFEF91 /* SelectableCellViewModel.swift in Sources */,
+				CCA5C8E12579E53600BFEF91 /* MainViewModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CCA5C86C2579E30300BFEF91 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CCA5C8752579E30300BFEF91 /* SmpCardTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CCA5C8722579E30300BFEF91 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CCA5C8592579E30200BFEF91 /* SmpCard */;
+			targetProxy = CCA5C8712579E30300BFEF91 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		CCA5C8682579E30300BFEF91 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CCA5C8692579E30300BFEF91 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CCA5C8772579E30300BFEF91 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		CCA5C8782579E30300BFEF91 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CCA5C87A2579E30300BFEF91 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 848BAD927447AD08041B743D /* Pods-SmpCard.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9L4H39Y9B9;
+				INFOPLIST_FILE = SmpCard/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.oxminc.SmpCard;
+				PRODUCT_NAME = "SMP cards";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CCA5C87B2579E30300BFEF91 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 523BBFA904439BD0854A98FD /* Pods-SmpCard.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SmpCard/SmpCardRelease.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9L4H39Y9B9;
+				INFOPLIST_FILE = SmpCard/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.oxminc.SmpCard;
+				PRODUCT_NAME = "SMP cards";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		CCA5C87D2579E30300BFEF91 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9L4H39Y9B9;
+				INFOPLIST_FILE = SmpCardTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.oxminc.SmpCardTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SmpCard.app/SmpCard";
+			};
+			name = Debug;
+		};
+		CCA5C87E2579E30300BFEF91 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9L4H39Y9B9;
+				INFOPLIST_FILE = SmpCardTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.oxminc.SmpCardTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SmpCard.app/SmpCard";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CCA5C8552579E30200BFEF91 /* Build configuration list for PBXProject "SmpCard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CCA5C8772579E30300BFEF91 /* Debug */,
+				CCA5C8782579E30300BFEF91 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CCA5C8792579E30300BFEF91 /* Build configuration list for PBXNativeTarget "SmpCard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CCA5C87A2579E30300BFEF91 /* Debug */,
+				CCA5C87B2579E30300BFEF91 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CCA5C87C2579E30300BFEF91 /* Build configuration list for PBXNativeTarget "SmpCardTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CCA5C87D2579E30300BFEF91 /* Debug */,
+				CCA5C87E2579E30300BFEF91 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CCA5C8522579E30200BFEF91 /* Project object */;
+}
