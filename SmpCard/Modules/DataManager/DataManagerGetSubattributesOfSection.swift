@@ -269,6 +269,7 @@ extension DataManager {
                 [ .masks,
                   .gloves,
                   .napkins,
+                  .syringe,
                   .siz,
                   .catheterPerefirichesky,
                   .catheterUrinary,

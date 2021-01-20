@@ -14,41 +14,40 @@ class PatternsTableViewController: UITableViewController {
     var viewModel: PatternsViewModelType!
     private var isFirstViewWillAppear = true
     
-     lazy var completion: (_ response: StorrageResponse) -> Void = { [unowned self] (response) in
-          DispatchQueue.main.async {
-              switch response {
-              case .success:
-                  self.navigationItem.titleView = nil
-                  self.isReachedTheEndOfTable = false
-                   self.tableView.reloadData()
-              case .realmComplete:
-                  self.navigationItem.titleView = nil
-                  self.isReachedTheEndOfTable = true
-              case .realmIsEmpty:
-                  self.navigationItem.titleView = nil
-                  self.isReachedTheEndOfTable = true
-              case .cloudComplete:
-                  if self.viewModel.numberOfPatterns == 0 {
-                      self.viewModel.fetchFromLocalStorrage(completion: self.completion)
-                      break
-                  }
-                  self.isReachedTheEndOfTable = true
-                  self.navigationItem.titleView = nil
-              case .cloudIsUnavailable:
-                  self.viewModel.fetchFromLocalStorrage(completion: self.completion)
-                  self.isReachedTheEndOfTable = true
-              case .cloudFetchedData:
-                  self.tableView.reloadData()
-                  self.isReachedTheEndOfTable = false
-                  self.navigationItem.titleView = nil
-              }
-            self.refreshControll.endRefreshing()
-
-          }
-      }
+    lazy var completion: (_ response: StorrageResponse) -> Void = { [unowned self] (response) in
+        DispatchQueue.main.async {
+            switch response {
+            case .success:
+                self.navigationItem.titleView = nil
+                self.isReachedTheEndOfTable = false
+                self.tableView.reloadData()
+            case .realmComplete:
+                self.navigationItem.titleView = nil
+                self.isReachedTheEndOfTable = true
+            case .realmIsEmpty:
+                self.navigationItem.titleView = nil
+                self.isReachedTheEndOfTable = true
+            case .cloudComplete:
+                if self.viewModel.numberOfPatterns == 0 {
+                    self.viewModel.fetchFromLocalStorrage(completion: self.completion)
+                    break
+                }
+                self.isReachedTheEndOfTable = true
+                self.navigationItem.titleView = nil
+            case .cloudIsUnavailable:
+                self.viewModel.fetchFromLocalStorrage(completion: self.completion)
+                self.isReachedTheEndOfTable = true
+            case .cloudFetchedData:
+                self.isReachedTheEndOfTable = false
+                self.navigationItem.titleView = nil
+                self.refreshControll.endRefreshing()
+                self.tableView.reloadData()
+            }
+        }
+    }
     
     let activityView = UIActivityIndicatorView(style: .medium)
-
+    
     lazy var patternSearchController: UISearchController = {
         let sc = UISearchController(searchResultsController: nil)
         sc.searchResultsUpdater = self
@@ -80,7 +79,7 @@ class PatternsTableViewController: UITableViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.refreshControl = refreshControll
-
+        
         tableView.register(PatternsTableViewCell.self, forCellReuseIdentifier: cellID)
     }
     
@@ -108,17 +107,18 @@ class PatternsTableViewController: UITableViewController {
     }
     
     private func setUpActivityView() {
-          activityView.translatesAutoresizingMaskIntoConstraints = false
-          navigationItem.titleView = activityView
-          activityView.leftAnchor.constraint(equalTo: navigationItem.titleView!.leftAnchor).isActive = true
-          activityView.rightAnchor.constraint(equalTo: navigationItem.titleView!.rightAnchor).isActive = true
-          activityView.topAnchor.constraint(equalTo: navigationItem.titleView!.topAnchor).isActive = true
-          activityView.bottomAnchor.constraint(equalTo: navigationItem.titleView!.bottomAnchor).isActive = true
-          activityView.startAnimating()
-      }
+        activityView.translatesAutoresizingMaskIntoConstraints = false
+        navigationItem.titleView = activityView
+        activityView.leftAnchor.constraint(equalTo: navigationItem.titleView!.leftAnchor).isActive = true
+        activityView.rightAnchor.constraint(equalTo: navigationItem.titleView!.rightAnchor).isActive = true
+        activityView.topAnchor.constraint(equalTo: navigationItem.titleView!.topAnchor).isActive = true
+        activityView.bottomAnchor.constraint(equalTo: navigationItem.titleView!.bottomAnchor).isActive = true
+        activityView.startAnimating()
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.tableView.reloadData()
         if isFirstViewWillAppear {
             setUpActivityView()
             isFirstViewWillAppear.toggle()

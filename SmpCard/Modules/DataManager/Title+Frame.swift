@@ -1510,6 +1510,13 @@ extension DataManager {
             case .frame:
                 return nil
             }
+        case .syringe:
+            switch requestOfSubattributeData {
+            case .title:
+                return "Шприц"
+            case .frame:
+                return nil
+            }
         case .siz:
             switch requestOfSubattributeData {
             case .title:

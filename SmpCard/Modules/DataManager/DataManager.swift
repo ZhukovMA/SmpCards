@@ -126,911 +126,321 @@ class DataManager {
         var section = SectionSubattributes()
         switch selectableAttribute {
         case .gotSick:
-            section.rows.append(SelectRowOfSubattribute(
-                title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .gotSickBeforeAnHour,
-                                                                      requestOfSubattributeData: .title) as? String,
-                subattribut: .gotSickBeforeAnHour,
-                isSelected: completeData.completeSelectableData.contains(.gotSickBeforeAnHour)))
-            section.rows.append(SelectRowOfSubattribute(title:
-                DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .gotSick1_3Hours,
-                                                               requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .gotSick1_3Hours,
-                                                        isSelected: completeData.completeSelectableData.contains(.gotSick1_3Hours)))
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .gotSick3_6Hours,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .gotSick3_6Hours,
-                                                        isSelected: completeData.completeSelectableData.contains(.gotSick3_6Hours)))
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .gotSick6_12Hours,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .gotSick6_12Hours,
-                                                        isSelected: completeData.completeSelectableData.contains(.gotSick6_12Hours)))
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .gotSickMoreADay,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .gotSickMoreADay,
-                                                        isSelected: completeData.completeSelectableData.contains(.gotSickMoreADay)))
+            section.rows.append(makeSelectableRow(subAttribute: .gotSickBeforeAnHour, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .gotSick1_3Hours, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .gotSick3_6Hours, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .gotSick6_12Hours, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .gotSickMoreADay, completeData: completeData))
             sections.append(section)
-      
+            
         case .condition:
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .conditionIsSatisfactory,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .conditionIsSatisfactory,
-                                                        isSelected: completeData.completeSelectableData.contains(.conditionIsSatisfactory)))
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .conditionIsOfModerateSeverity,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .conditionIsOfModerateSeverity,
-                                                        isSelected: completeData.completeSelectableData.contains(.conditionIsOfModerateSeverity)))
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .conditionIsHeavy,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .conditionIsHeavy,
-                                                        isSelected: completeData.completeSelectableData.contains(.conditionIsHeavy)))
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .conditionIsTerminal,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .conditionIsTerminal,
-                                                        isSelected: completeData.completeSelectableData.contains(.conditionIsTerminal)))
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .conditionIsDeath,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .conditionIsDeath,
-                                                        isSelected: completeData.completeSelectableData.contains(.conditionIsDeath)))
+            section.rows.append(makeSelectableRow(subAttribute: .conditionIsSatisfactory, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .conditionIsOfModerateSeverity, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .conditionIsHeavy, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .conditionIsTerminal, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .conditionIsDeath, completeData: completeData))
             sections.append(section)
         case .consciousness:
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .consciousnessIsClear,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .consciousnessIsClear,
-                                                        isSelected: completeData.completeSelectableData.contains(.consciousnessIsClear)))
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .consciousnessIsStunning,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .consciousnessIsStunning,
-                                                        isSelected: completeData.completeSelectableData.contains(.consciousnessIsStunning)))
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .consciousnessIsSopor,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .consciousnessIsSopor,
-                                                        isSelected: completeData.completeSelectableData.contains(.consciousnessIsSopor)))
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .consciousnessIsComa1,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .consciousnessIsComa1,
-                                                        isSelected: completeData.completeSelectableData.contains(.consciousnessIsComa1)))
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .consciousnessIsComa2,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .consciousnessIsComa2,
-                                                        isSelected: completeData.completeSelectableData.contains(.consciousnessIsComa2)))
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .consciousnessIsComa3,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .consciousnessIsComa3,
-                                                        isSelected: completeData.completeSelectableData.contains(.consciousnessIsComa3)))
+            section.rows.append(makeSelectableRow(subAttribute: .consciousnessIsClear, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .consciousnessIsStunning, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .consciousnessIsSopor, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .consciousnessIsComa1, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .consciousnessIsComa2, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .consciousnessIsComa3, completeData: completeData))
             sections.append(section)
         case .position:
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .positionIsActive,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .positionIsActive,
-                                                        isSelected: completeData.completeSelectableData.contains(.positionIsActive)))
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .positionIsPassive,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .positionIsPassive,
-                                                        isSelected: completeData.completeSelectableData.contains(.positionIsPassive)))
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .positionIsForced,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .positionIsForced,
-                                                        isSelected: completeData.completeSelectableData.contains(.positionIsForced)))
-            section.rows.append(TextRowOfSubattribute(title: nil,
-                                                      subattribut: .positionText,
-                                                      text: completeData.completeTextData[.positionText],
-                                                      limit: 10))
+            section.rows.append(makeSelectableRow(subAttribute: .positionIsActive, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .positionIsPassive, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .positionIsForced, completeData: completeData))
+            section.rows.append(makeTextRow(subAttribute: .positionText, completeData: completeData, limit: 10))
             sections.append(section)
         case .skin:
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .skinIsDry,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .skinIsDry,
-                                                        isSelected: completeData.completeSelectableData.contains(.skinIsDry)))
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .skinIsWet,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .skinIsWet,
-                                                        isSelected: completeData.completeSelectableData.contains(.skinIsWet)))
+            section.rows.append(makeSelectableRow(subAttribute: .skinIsDry, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .skinIsWet, completeData: completeData))
             sections.append(section)
             var section1 = SectionSubattributes()
-            section1.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .skinIsWarm,
-                                                                                                               requestOfSubattributeData: .title) as? String,
-                                                         subattribut: .skinIsWarm,
-                                                         isSelected: completeData.completeSelectableData.contains(.skinIsWarm)))
-            section1.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .skinIsCold,
-                                                                                                               requestOfSubattributeData: .title) as? String,
-                                                         subattribut: .skinIsCold,
-                                                         isSelected: completeData.completeSelectableData.contains(.skinIsCold)))
+            section1.rows.append(makeSelectableRow(subAttribute: .skinIsWarm, completeData: completeData))
+            section1.rows.append(makeSelectableRow(subAttribute: .skinIsCold, completeData: completeData))
             sections.append(section1)
             var section2 = SectionSubattributes()
-            section2.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .skinIsPhisiologicalColor,
-                                                                                                               requestOfSubattributeData: .title) as? String,
-                                                         subattribut: .skinIsPhisiologicalColor,
-                                                         isSelected: completeData.completeSelectableData.contains(.skinIsPhisiologicalColor)))
-            section2.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .skinIsPale,
-                                                                                                               requestOfSubattributeData: .title) as? String,
-                                                         subattribut: .skinIsPale,
-                                                         isSelected: completeData.completeSelectableData.contains(.skinIsPale)))
-            section2.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .skinIsHyperemic,
-                                                                                                               requestOfSubattributeData: .title) as? String,
-                                                         subattribut: .skinIsHyperemic,
-                                                         isSelected: completeData.completeSelectableData.contains(.skinIsHyperemic)))
-            section2.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .skinIsCyanotic,
-                                                                                                               requestOfSubattributeData: .title) as? String,
-                                                         subattribut: .skinIsCyanotic,
-                                                         isSelected: completeData.completeSelectableData.contains(.skinIsCyanotic)))
+            section2.rows.append(makeSelectableRow(subAttribute: .skinIsPhisiologicalColor, completeData: completeData))
+            section2.rows.append(makeSelectableRow(subAttribute: .skinIsPale, completeData: completeData))
+            section2.rows.append(makeSelectableRow(subAttribute: .skinIsHyperemic, completeData: completeData))
+            section2.rows.append(makeSelectableRow(subAttribute: .skinIsCyanotic, completeData: completeData))
             sections.append(section2)
             var section3 = SectionSubattributes()
-            section3.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .skinIsJaundice,
-                                                                                                               requestOfSubattributeData: .title) as? String,
-                                                         subattribut: .skinIsJaundice,
-                                                         isSelected: completeData.completeSelectableData.contains(.skinIsJaundice)))
-            section3.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .skinIsAcrocyanosis,
-                                                                                                               requestOfSubattributeData: .title) as? String,
-                                                         subattribut: .skinIsAcrocyanosis,
-                                                         isSelected: completeData.completeSelectableData.contains(.skinIsAcrocyanosis)))
-            section3.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .skinIsMarbling,
-                                                                                                               requestOfSubattributeData: .title) as? String,
-                                                         subattribut: .skinIsMarbling,
-                                                         isSelected: completeData.completeSelectableData.contains(.skinIsMarbling)))
+            section3.rows.append(makeSelectableRow(subAttribute: .skinIsJaundice, completeData: completeData))
+            section3.rows.append(makeSelectableRow(subAttribute: .skinIsAcrocyanosis, completeData: completeData))
+            section3.rows.append(makeSelectableRow(subAttribute: .skinIsMarbling, completeData: completeData))
             sections.append(section3)
         case .rash:
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .hasNotRash,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .hasNotRash,
-                                                        isSelected: completeData.completeSelectableData.contains(.hasNotRash)))
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .hasRash,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .hasRash,
-                                                        isSelected: completeData.completeSelectableData.contains(.hasRash)))
-            section.rows.append(TextRowOfSubattribute(title: nil,
-                                                      subattribut: .rashText,
-                                                      text: completeData.completeTextData[.rashText],
-                                                      limit: 33))
+            section.rows.append(makeSelectableRow(subAttribute: .hasNotRash, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .hasRash, completeData: completeData))
+            section.rows.append(makeTextRow(subAttribute: .rashText, completeData: completeData, limit: 33))
             sections.append(section)
         case .edema:
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .hasNotEdema,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .hasNotEdema,
-                                                        isSelected: completeData.completeSelectableData.contains(.hasNotEdema)))
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .hasEdema,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .hasEdema,
-                                                        isSelected: completeData.completeSelectableData.contains(.hasEdema)))
-            section.rows.append(TextRowOfSubattribute(title: nil,
-                                                      subattribut: .edemaText,
-                                                      text: completeData.completeTextData[.edemaText],
-                                                      limit: 28))
+            section.rows.append(makeSelectableRow(subAttribute: .hasNotEdema, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .hasEdema, completeData: completeData))
+            section.rows.append(makeTextRow(subAttribute: .edemaText, completeData: completeData, limit: 28))
             sections.append(section)
         case .behavior:
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .behaviorIsCalm,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .behaviorIsCalm,
-                                                        isSelected: completeData.completeSelectableData.contains(.behaviorIsCalm)))
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .behaviorIsAgitated,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .behaviorIsAgitated,
-                                                        isSelected: completeData.completeSelectableData.contains(.behaviorIsAgitated)))
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .behaviorIsAggressive,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .behaviorIsAggressive,
-                                                        isSelected: completeData.completeSelectableData.contains(.behaviorIsAggressive)))
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .behaviorIsDepressive,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .behaviorIsDepressive,
-                                                        isSelected: completeData.completeSelectableData.contains(.behaviorIsDepressive)))
+            section.rows.append(makeSelectableRow(subAttribute: .behaviorIsCalm, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .behaviorIsAgitated, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .behaviorIsAggressive, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .behaviorIsDepressive, completeData: completeData))
             sections.append(section)
             var section1 = SectionSubattributes()
-            section1.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .behaviorIsKontacten,
-                                                                                                               requestOfSubattributeData: .title) as? String,
-                                                         subattribut: .behaviorIsKontacten,
-                                                         isSelected: completeData.completeSelectableData.contains(.behaviorIsKontacten)))
-            section1.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .behaviorIsNotKontacten,
-                                                                                                               requestOfSubattributeData: .title) as? String,
-                                                         subattribut: .behaviorIsNotKontacten,
-                                                         isSelected: completeData.completeSelectableData.contains(.behaviorIsNotKontacten)))
-            section1.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .behaviorIsAmnesia,
-                                                                                                               requestOfSubattributeData: .title) as? String,
-                                                         subattribut: .behaviorIsAmnesia,
-                                                         isSelected: completeData.completeSelectableData.contains(.behaviorIsAmnesia)))
-            section1.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .behaviorIsataxia,
-                                                                                                               requestOfSubattributeData: .title) as? String,
-                                                         subattribut: .behaviorIsataxia,
-                                                         isSelected: completeData.completeSelectableData.contains(.behaviorIsataxia)))
+            section1.rows.append(makeSelectableRow(subAttribute: .behaviorIsKontacten, completeData: completeData))
+            section1.rows.append(makeSelectableRow(subAttribute: .behaviorIsNotKontacten, completeData: completeData))
+            section1.rows.append(makeSelectableRow(subAttribute: .behaviorIsAmnesia, completeData: completeData))
+            section1.rows.append(makeSelectableRow(subAttribute: .behaviorIsataxia, completeData: completeData))
             sections.append(section1)
         case .pupils:
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .pupilsIsODIsEqualOS,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .pupilsIsODIsEqualOS,
-                                                        isSelected: completeData.completeSelectableData.contains(.pupilsIsODIsEqualOS)))
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .pupilsIsODIsNotEqualOS,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .pupilsIsODIsNotEqualOS,
-                                                        isSelected: completeData.completeSelectableData.contains(.pupilsIsODIsNotEqualOS)))
+            section.rows.append(makeSelectableRow(subAttribute: .pupilsIsODIsEqualOS, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .pupilsIsODIsNotEqualOS, completeData: completeData))
             sections.append(section)
             var section1 = SectionSubattributes()
-            section1.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .pupilsIsNormal,
-                                                                                                               requestOfSubattributeData: .title) as? String,
-                                                         subattribut: .pupilsIsNormal,
-                                                         isSelected: completeData.completeSelectableData.contains(.pupilsIsNormal)))
-            section1.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .pupilsIsWide,
-                                                                                                               requestOfSubattributeData: .title) as? String,
-                                                         subattribut: .pupilsIsWide,
-                                                         isSelected: completeData.completeSelectableData.contains(.pupilsIsWide)))
-            section1.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .pupilsIsNarrow,
-                                                                                                               requestOfSubattributeData: .title) as? String,
-                                                         subattribut: .pupilsIsNarrow,
-                                                         isSelected: completeData.completeSelectableData.contains(.pupilsIsNarrow)))
-            section1.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .pupilsIsAnisocoria,
-                                                                                                               requestOfSubattributeData: .title) as? String,
-                                                         subattribut: .pupilsIsAnisocoria,
-                                                         isSelected: completeData.completeSelectableData.contains(.pupilsIsAnisocoria)))
+            section1.rows.append(makeSelectableRow(subAttribute: .pupilsIsNormal, completeData: completeData))
+            section1.rows.append(makeSelectableRow(subAttribute: .pupilsIsWide, completeData: completeData))
+            section1.rows.append(makeSelectableRow(subAttribute: .pupilsIsNarrow, completeData: completeData))
+            section1.rows.append(makeSelectableRow(subAttribute: .pupilsIsAnisocoria, completeData: completeData))
             sections.append(section1)
         case .reactionToLight:
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .reactionToLightIsAlive,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .reactionToLightIsAlive,
-                                                        isSelected: completeData.completeSelectableData.contains(.reactionToLightIsAlive)))
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .reactionToLightIsHoly,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .reactionToLightIsHoly,
-                                                        isSelected: completeData.completeSelectableData.contains(.reactionToLightIsHoly)))
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .reactionToLightIsNone,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .reactionToLightIsNone,
-                                                        isSelected: completeData.completeSelectableData.contains(.reactionToLightIsNone)))
+            section.rows.append(makeSelectableRow(subAttribute: .reactionToLightIsAlive, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .reactionToLightIsHoly, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .reactionToLightIsNone, completeData: completeData))
             sections.append(section)
         case .nystagm:
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .hasNotNystagm,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .hasNotNystagm,
-                                                        isSelected: completeData.completeSelectableData.contains(.hasNotNystagm)))
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .hasNystagm,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .hasNystagm,
-                                                        isSelected: completeData.completeSelectableData.contains(.hasNystagm)))
-            section.rows.append(TextRowOfSubattribute(title: nil,
-                                                      subattribut: .nystagmText,
-                                                      text: completeData.completeTextData[.nystagmText],
-                                                      limit: 15))
+            section.rows.append(makeSelectableRow(subAttribute: .hasNotNystagm, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .hasNystagm, completeData: completeData))
+            section.rows.append(makeTextRow(subAttribute: .nystagmText, completeData: completeData, limit: 15))
             sections.append(section)
         case .meningealSymptom:
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .hasNotMeningealSymptom,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .hasNotMeningealSymptom,
-                                                        isSelected: completeData.completeSelectableData.contains(.hasNotMeningealSymptom)))
+            section.rows.append(makeSelectableRow(subAttribute: .hasNotMeningealSymptom, completeData: completeData))
             sections.append(section)
             var section1 = SectionSubattributes()
-            section1.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .regedivnostZatilochnihMuscle,
-                                                                                                               requestOfSubattributeData: .title) as? String,
-                                                         subattribut: .regedivnostZatilochnihMuscle,
-                                                         isSelected: completeData.completeSelectableData.contains(.regedivnostZatilochnihMuscle)))
-            section1.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .kernig,
-                                                                                                               requestOfSubattributeData: .title) as? String,
-                                                         subattribut: .kernig,
-                                                         isSelected: completeData.completeSelectableData.contains(.kernig)))
-            section1.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .brudzinski,
-                                                                                                               requestOfSubattributeData: .title) as? String,
-                                                         subattribut: .brudzinski,
-                                                         isSelected: completeData.completeSelectableData.contains(.brudzinski)))
+            section1.rows.append(makeSelectableRow(subAttribute: .regedivnostZatilochnihMuscle, completeData: completeData))
+            section1.rows.append(makeSelectableRow(subAttribute: .kernig, completeData: completeData))
+            section1.rows.append(makeSelectableRow(subAttribute: .brudzinski, completeData: completeData))
             sections.append(section1)
         case .focalSymptoms:
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .hasNotFocalSymptoms,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .hasNotFocalSymptoms,
-                                                        isSelected: completeData.completeSelectableData.contains(.hasNotFocalSymptoms)))
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .hasFocalSymptoms,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .hasFocalSymptoms,
-                                                        isSelected: completeData.completeSelectableData.contains(.hasFocalSymptoms)))
-            section.rows.append(TextRowOfSubattribute(title: nil,
-                                                      subattribut: .focalSymptomsText,
-                                                      text: completeData.completeTextData[.focalSymptomsText],
-                                                      limit: 117))
+            section.rows.append(makeSelectableRow(subAttribute: .hasNotFocalSymptoms, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .hasFocalSymptoms, completeData: completeData))
+            section.rows.append(makeTextRow(subAttribute: .focalSymptomsText, completeData: completeData, limit: 117))
             sections.append(section)
         case .breath:
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .breathFeel,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .breathFeel,
-                                                        isSelected: completeData.completeSelectableData.contains(.breathFeel)))
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .breathNotFeel,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .breathNotFeel,
-                                                        isSelected: completeData.completeSelectableData.contains(.breathNotFeel)))
+            section.rows.append(makeSelectableRow(subAttribute: .breathFeel, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .breathNotFeel, completeData: completeData))
             sections.append(section)
         case .separatedFromNasalPassages:
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .hasNotSeparatedFromNasalPassages,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .hasNotSeparatedFromNasalPassages,
-                                                        isSelected: completeData.completeSelectableData.contains(.hasNotSeparatedFromNasalPassages)))
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .hasSeparatedFromNasalPassages,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .hasSeparatedFromNasalPassages,
-                                                        isSelected: completeData.completeSelectableData.contains(.hasSeparatedFromNasalPassages)))
+            section.rows.append(makeSelectableRow(subAttribute: .hasNotSeparatedFromNasalPassages, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .hasSeparatedFromNasalPassages, completeData: completeData))
             sections.append(section)
         case .dyspnea:
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .dyspneaIsInspiratory,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .dyspneaIsInspiratory,
-                                                        isSelected: completeData.completeSelectableData.contains(.dyspneaIsInspiratory)))
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .dyspneaIsExpiratory,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .dyspneaIsExpiratory,
-                                                        isSelected: completeData.completeSelectableData.contains(.dyspneaIsExpiratory)))
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .dyspneaIsmixed,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .dyspneaIsmixed,
-                                                        isSelected: completeData.completeSelectableData.contains(.dyspneaIsmixed)))
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .dyspneaIsPotalogic,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .dyspneaIsPotalogic,
-                                                        isSelected: completeData.completeSelectableData.contains(.dyspneaIsPotalogic)))
+            section.rows.append(makeSelectableRow(subAttribute: .dyspneaIsInspiratory, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .dyspneaIsExpiratory, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .dyspneaIsmixed, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .dyspneaIsPotalogic, completeData: completeData))
             sections.append(section)
         case .percussionSound:
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .percussionSoundIsPulmonary,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .percussionSoundIsPulmonary,
-                                                        isSelected: completeData.completeSelectableData.contains(.percussionSoundIsPulmonary)))
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .percussionSoundIsShortened,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .percussionSoundIsShortened,
-                                                        isSelected: completeData.completeSelectableData.contains(.percussionSoundIsShortened)))
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .percussionSoundIsTympanic,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .percussionSoundIsTympanic,
-                                                        isSelected: completeData.completeSelectableData.contains(.percussionSoundIsTympanic)))
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .percussionSoundIsDull,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .percussionSoundIsDull,
-                                                        isSelected: completeData.completeSelectableData.contains(.percussionSoundIsDull)))
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .percussionSoundIsBoxboardAbove,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .percussionSoundIsBoxboardAbove,
-                                                        isSelected: completeData.completeSelectableData.contains(.percussionSoundIsBoxboardAbove)))
-            section.rows.append(TextRowOfSubattribute(title: nil,
-                                                      subattribut: .percussionSoundText,
-                                                      text: completeData.completeTextData[.percussionSoundText],
-                                                      limit: 21))
+            section.rows.append(makeSelectableRow(subAttribute: .percussionSoundIsPulmonary, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .percussionSoundIsShortened, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .percussionSoundIsTympanic, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .percussionSoundIsDull, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .percussionSoundIsBoxboardAbove, completeData: completeData))
+            section.rows.append(makeTextRow(subAttribute: .percussionSoundText, completeData: completeData, limit: 21))
             sections.append(section)
         case .auscultationBreath:
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .auscultationBreathIsPuerile,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .auscultationBreathIsPuerile,
-                                                        isSelected: completeData.completeSelectableData.contains(.auscultationBreathIsPuerile)))
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .auscultationBreathIsVesicular,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .auscultationBreathIsVesicular,
-                                                        isSelected: completeData.completeSelectableData.contains(.auscultationBreathIsVesicular)))
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .auscultationBreathIsBronchial,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .auscultationBreathIsBronchial,
-                                                        isSelected: completeData.completeSelectableData.contains(.auscultationBreathIsBronchial)))
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .auscultationBreathIsHard,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .auscultationBreathIsHard,
-                                                        isSelected: completeData.completeSelectableData.contains(.auscultationBreathIsHard)))
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .auscultationBreathIsTenatic,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .auscultationBreathIsTenatic,
-                                                        isSelected: completeData.completeSelectableData.contains(.auscultationBreathIsTenatic)))
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .auscultationBreathIsWeakened,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .auscultationBreathIsWeakened,
-                                                        isSelected: completeData.completeSelectableData.contains(.auscultationBreathIsWeakened)))
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .auscultationBreathNone,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .auscultationBreathNone,
-                                                        isSelected: completeData.completeSelectableData.contains(.auscultationBreathNone)))
-            section.rows.append(TextRowOfSubattribute(title: nil,
-                                                      subattribut: .auscultationBreathText,
-                                                      text: completeData.completeTextData[.auscultationBreathText],
-                                                      limit: 21))
+            section.rows.append(makeSelectableRow(subAttribute: .auscultationBreathIsPuerile, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .auscultationBreathIsVesicular, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .auscultationBreathIsBronchial, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .auscultationBreathIsHard, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .auscultationBreathIsTenatic, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .auscultationBreathIsWeakened, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .auscultationBreathNone, completeData: completeData))
+            section.rows.append(makeTextRow(subAttribute: .auscultationBreathText, completeData: completeData, limit: 21))
             sections.append(section)
         case .rale:
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .hasNotRale,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .hasNotRale,
-                                                        isSelected: completeData.completeSelectableData.contains(.hasNotRale)))
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .dryRale,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .dryRale,
-                                                        isSelected: completeData.completeSelectableData.contains(.dryRale)))
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .wetRaleSmallbubble,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .wetRaleSmallbubble,
-                                                        isSelected: completeData.completeSelectableData.contains(.wetRaleSmallbubble)))
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .wetRaleMediumbubble,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .wetRaleMediumbubble,
-                                                        isSelected: completeData.completeSelectableData.contains(.wetRaleMediumbubble)))
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .wetRaleLargebubble,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .wetRaleLargebubble,
-                                                        isSelected: completeData.completeSelectableData.contains(.wetRaleLargebubble)))
-            section.rows.append(TextRowOfSubattribute(title: nil,
-                                                      subattribut: .raleText,
-                                                      text: completeData.completeTextData[.raleText],
-                                                      limit: 24))
+            section.rows.append(makeSelectableRow(subAttribute: .hasNotRale, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .dryRale, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .wetRaleSmallbubble, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .wetRaleMediumbubble, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .wetRaleLargebubble, completeData: completeData))
+            section.rows.append(makeTextRow(subAttribute: .raleText, completeData: completeData, limit: 24))
             sections.append(section)
         case .pleuralFrictionNoise:
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .hasNotPleuralFrictionNoise,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .hasNotPleuralFrictionNoise,
-                                                        isSelected: completeData.completeSelectableData.contains(.hasNotPleuralFrictionNoise)))
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .hasPleuralFrictionNoise,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .hasPleuralFrictionNoise,
-                                                        isSelected: completeData.completeSelectableData.contains(.hasPleuralFrictionNoise)))
+            section.rows.append(makeSelectableRow(subAttribute: .hasNotPleuralFrictionNoise, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .hasPleuralFrictionNoise, completeData: completeData))
             sections.append(section)
         case .heartTones:
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .heartTonesIsResonant,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .heartTonesIsResonant,
-                                                        isSelected: completeData.completeSelectableData.contains(.heartTonesIsResonant)))
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .heartTonesIsPriglasheny,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .heartTonesIsPriglasheny,
-                                                        isSelected: completeData.completeSelectableData.contains(.heartTonesIsPriglasheny)))
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .heartTonesIsDeaf,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .heartTonesIsDeaf,
-                                                        isSelected: completeData.completeSelectableData.contains(.heartTonesIsDeaf)))
+            section.rows.append(makeSelectableRow(subAttribute: .heartTonesIsResonant, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .heartTonesIsPriglasheny, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .heartTonesIsDeaf, completeData: completeData))
             sections.append(section)
         case .noise:
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .noiseIsSystolic,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .noiseIsSystolic,
-                                                        isSelected: completeData.completeSelectableData.contains(.noiseIsSystolic)))
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .noiseIsDiastolic,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .noiseIsDiastolic,
-                                                        isSelected: completeData.completeSelectableData.contains(.noiseIsDiastolic)))
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .noiseIsAccent,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .noiseIsAccent,
-                                                        isSelected: completeData.completeSelectableData.contains(.noiseIsAccent)))
-            section.rows.append(TextRowOfSubattribute(title: nil,
-                                                      subattribut: .noiseText,
-                                                      text: completeData.completeTextData[.noiseText],
-                                                      limit: 17))
+            section.rows.append(makeSelectableRow(subAttribute: .noiseIsSystolic, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .noiseIsDiastolic, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .noiseIsAccent, completeData: completeData))
+            section.rows.append(makeTextRow(subAttribute: .noiseText, completeData: completeData, limit: 17))
             sections.append(section)
         case .noiseOfFrictionPericard:
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .hasNotNoiseOfFrictionPericard,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .hasNotNoiseOfFrictionPericard,
-                                                        isSelected: completeData.completeSelectableData.contains(.hasNotNoiseOfFrictionPericard)))
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .hasNoiseOfFrictionPericard,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .hasNoiseOfFrictionPericard,
-                                                        isSelected: completeData.completeSelectableData.contains(.hasNoiseOfFrictionPericard)))
+            section.rows.append(makeSelectableRow(subAttribute: .hasNotNoiseOfFrictionPericard, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .hasNoiseOfFrictionPericard, completeData: completeData))
             sections.append(section)
         case .tongue:
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .tongueIsWet,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .tongueIsWet,
-                                                        isSelected: completeData.completeSelectableData.contains(.tongueIsWet)))
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .tongueIsDry,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .tongueIsDry,
-                                                        isSelected: completeData.completeSelectableData.contains(.tongueIsDry)))
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .tongueIsOverlaid,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .tongueIsOverlaid,
-                                                        isSelected: completeData.completeSelectableData.contains(.tongueIsOverlaid)))
-            section.rows.append(TextRowOfSubattribute(title: nil,
-                                                      subattribut: .tongueText,
-                                                      text: completeData.completeTextData[.tongueText],
-                                                      limit: 18))
+            section.rows.append(makeSelectableRow(subAttribute: .tongueIsWet, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .tongueIsDry, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .tongueIsOverlaid, completeData: completeData))
+            section.rows.append(makeTextRow(subAttribute: .tongueText, completeData: completeData, limit: 18))
             sections.append(section)
         case .stomach:
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .stomachIsSoft,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .stomachIsSoft,
-                                                        isSelected: completeData.completeSelectableData.contains(.stomachIsSoft)))
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .stomachIsTense,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .stomachIsTense,
-                                                        isSelected: completeData.completeSelectableData.contains(.stomachIsTense)))
+            section.rows.append(makeSelectableRow(subAttribute: .stomachIsSoft, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .stomachIsTense, completeData: completeData))
             sections.append(section)
             var section1 = SectionSubattributes()
-            section1.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .stomachIsPainful,
-                                                                                                               requestOfSubattributeData: .title) as? String,
-                                                         subattribut: .stomachIsPainful,
-                                                         isSelected: completeData.completeSelectableData.contains(.stomachIsPainful)))
-            section1.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .stomachIsNotPainful,
-                                                                                                               requestOfSubattributeData: .title) as? String,
-                                                         subattribut: .stomachIsNotPainful,
-                                                         isSelected: completeData.completeSelectableData.contains(.stomachIsNotPainful)))
-            section1.rows.append(TextRowOfSubattribute(title: nil,
-                                                       subattribut: .stomachText,
-                                                       text: completeData.completeTextData[.stomachText],
-                                                       limit: 57))
+            section1.rows.append(makeSelectableRow(subAttribute: .stomachIsPainful, completeData: completeData))
+            section1.rows.append(makeSelectableRow(subAttribute: .stomachIsNotPainful, completeData: completeData))
+            section1.rows.append(makeTextRow(subAttribute: .stomachText, completeData: completeData, limit: 57))
             sections.append(section1)
         case .positiveSymptom:
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .positiveSymptomOfSpijarski,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .positiveSymptomOfSpijarski,
-                                                        isSelected: completeData.completeSelectableData.contains(.positiveSymptomOfSpijarski)))
+            section.rows.append(makeSelectableRow(subAttribute: .positiveSymptomOfSpijarski, completeData: completeData))
             sections.append(section)
             var section1 = SectionSubattributes()
-            section1.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .positiveSymptomOfRazdolsky,
-                                                                                                               requestOfSubattributeData: .title) as? String,
-                                                         subattribut: .positiveSymptomOfRazdolsky,
-                                                         isSelected: completeData.completeSelectableData.contains(.positiveSymptomOfRazdolsky)))
-            section1.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .positiveSymptomOfObraztsov,
-                                                                                                               requestOfSubattributeData: .title) as? String,
-                                                         subattribut: .positiveSymptomOfObraztsov,
-                                                         isSelected: completeData.completeSelectableData.contains(.positiveSymptomOfObraztsov)))
-            section1.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .positiveSymptomOfSidkovskogo,
-                                                                                                               requestOfSubattributeData: .title) as? String,
-                                                         subattribut: .positiveSymptomOfSidkovskogo,
-                                                         isSelected: completeData.completeSelectableData.contains(.positiveSymptomOfSidkovskogo)))
-            section1.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .positiveSymptomRovsinga,
-                                                                                                               requestOfSubattributeData: .title) as? String,
-                                                         subattribut: .positiveSymptomRovsinga,
-                                                         isSelected: completeData.completeSelectableData.contains(.positiveSymptomRovsinga)))
-            section1.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .positiveSymptomOfShchetkinBlumberg,
-                                                                                                               requestOfSubattributeData: .title) as? String,
-                                                         subattribut: .positiveSymptomOfShchetkinBlumberg,
-                                                         isSelected: completeData.completeSelectableData.contains(.positiveSymptomOfShchetkinBlumberg)))
-            section1.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .positiveSymptomOfRozanov,
-                                                                                                               requestOfSubattributeData: .title) as? String,
-                                                         subattribut: .positiveSymptomOfRozanov,
-                                                         isSelected: completeData.completeSelectableData.contains(.positiveSymptomOfRozanov)))
+            section1.rows.append(makeSelectableRow(subAttribute: .positiveSymptomOfRazdolsky, completeData: completeData))
+            section1.rows.append(makeSelectableRow(subAttribute: .positiveSymptomOfObraztsov, completeData: completeData))
+            section1.rows.append(makeSelectableRow(subAttribute: .positiveSymptomOfSidkovskogo, completeData: completeData))
+            section1.rows.append(makeSelectableRow(subAttribute: .positiveSymptomRovsinga, completeData: completeData))
+            section1.rows.append(makeSelectableRow(subAttribute: .positiveSymptomOfShchetkinBlumberg, completeData: completeData))
+            section1.rows.append(makeSelectableRow(subAttribute: .positiveSymptomOfRozanov, completeData: completeData))
             sections.append(section1)
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .positiveSymptomMerphy,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .positiveSymptomMerphy,
-                                                        isSelected: completeData.completeSelectableData.contains(.positiveSymptomMerphy)))
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .positiveSymptomOfOrtner,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .positiveSymptomOfOrtner,
-                                                        isSelected: completeData.completeSelectableData.contains(.positiveSymptomOfOrtner)))
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .positiveSymptomOfGrekov,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .positiveSymptomOfGrekov,
-                                                        isSelected: completeData.completeSelectableData.contains(.positiveSymptomOfGrekov)))
+            section.rows.append(makeSelectableRow(subAttribute: .positiveSymptomMerphy, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .positiveSymptomOfOrtner, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .positiveSymptomOfGrekov, completeData: completeData))
             sections.append(section)
             var section2 = SectionSubattributes()
-            section2.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .positiveSymptomOfMayoRobson,
-                                                                                                               requestOfSubattributeData: .title) as? String,
-                                                         subattribut: .positiveSymptomOfMayoRobson,
-                                                         isSelected: completeData.completeSelectableData.contains(.positiveSymptomOfMayoRobson)))
+            section2.rows.append(makeSelectableRow(subAttribute: .positiveSymptomOfMayoRobson, completeData: completeData))
             sections.append(section2)
-            section2.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .positiveSymptomOfValya,
-                                                                                                               requestOfSubattributeData: .title) as? String,
-                                                         subattribut: .positiveSymptomOfValya,
-                                                         isSelected: completeData.completeSelectableData.contains(.positiveSymptomOfValya)))
-            section2.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .positiveSymptomOfSklyarov,
-                                                                                                               requestOfSubattributeData: .title) as? String,
-                                                         subattribut: .positiveSymptomOfSklyarov,
-                                                         isSelected: completeData.completeSelectableData.contains(.positiveSymptomOfSklyarov)))
+            section2.rows.append(makeSelectableRow(subAttribute: .positiveSymptomOfValya, completeData: completeData))
+            section2.rows.append(makeSelectableRow(subAttribute: .positiveSymptomOfSklyarov, completeData: completeData))
             sections.append(section2)
         case .dyspepsia:
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .dyspepsiaNausea,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .dyspepsiaNausea,
-                                                        isSelected: completeData.completeSelectableData.contains(.dyspepsiaNausea)))
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .dyspepsiaVomiting,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .dyspepsiaVomiting,
-                                                        isSelected: completeData.completeSelectableData.contains(.dyspepsiaVomiting)))
-            section.rows.append(TextRowOfSubattribute(title: nil,
-                                                      subattribut: .dyspepsiaText,
-                                                      text: completeData.completeTextData[.dyspepsiaText],
-                                                      limit: 12))
+            section.rows.append(makeSelectableRow(subAttribute: .dyspepsiaNausea, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .dyspepsiaVomiting, completeData: completeData))
+            section.rows.append(makeTextRow(subAttribute: .dyspepsiaText, completeData: completeData, limit: 12))
             sections.append(section)
         case .chair:
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .chairIsFormed,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .chairIsFormed,
-                                                        isSelected: completeData.completeSelectableData.contains(.chairIsFormed)))
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .chairIsZapor,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .chairIsZapor,
-                                                        isSelected: completeData.completeSelectableData.contains(.chairIsZapor)))
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .chairIsLiquid,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .chairIsLiquid,
-                                                        isSelected: completeData.completeSelectableData.contains(.chairIsLiquid)))
-            section.rows.append(TextRowOfSubattribute(title: nil,
-                                                      subattribut: .chairText,
-                                                      text: completeData.completeTextData[.chairText],
-                                                      limit: 37))
+            section.rows.append(makeSelectableRow(subAttribute: .chairIsFormed, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .chairIsZapor, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .chairIsLiquid, completeData: completeData))
+            section.rows.append(makeTextRow(subAttribute: .chairText, completeData: completeData, limit: 37))
             sections.append(section)
         case .diuresis:
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .diuresisIsSufficient,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .diuresisIsSufficient,
-                                                        isSelected: completeData.completeSelectableData.contains(.diuresisIsSufficient)))
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .diuresisIsreduced,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .diuresisIsreduced,
-                                                        isSelected: completeData.completeSelectableData.contains(.diuresisIsreduced)))
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .diuresisIspolyuria,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .diuresisIspolyuria,
-                                                        isSelected: completeData.completeSelectableData.contains(.diuresisIspolyuria)))
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .diuresisIshematuria,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .diuresisIshematuria,
-                                                        isSelected: completeData.completeSelectableData.contains(.diuresisIshematuria)))
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .diuresisIsAnuria,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .diuresisIsAnuria,
-                                                        isSelected: completeData.completeSelectableData.contains(.diuresisIsAnuria)))
+            section.rows.append(makeSelectableRow(subAttribute: .diuresisIsSufficient, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .diuresisIsreduced, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .diuresisIspolyuria, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .diuresisIshematuria, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .diuresisIsAnuria, completeData: completeData))
             sections.append(section)
-
+            
         case .perfomance:
-            section.rows.append(TextRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .adBeforeMedHelp,
-                                                                                                            requestOfSubattributeData: .title) as? String,
-                                                      subattribut: .adBeforeMedHelp,
-                                                      text: completeData.completeTextData[.adBeforeMedHelp],
-                                                      limit: nil))
-            section.rows.append(TextRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .adAfterMedHelp,
-                                                                                                            requestOfSubattributeData: .title) as? String,
-                                                      subattribut: .adAfterMedHelp,
-                                                      text: completeData.completeTextData[.adAfterMedHelp],
-                                                      limit: nil))
+            section.rows.append(makeTextRow(subAttribute: .adBeforeMedHelp, completeData: completeData, limit: nil))
+            section.rows.append(makeTextRow(subAttribute: .adAfterMedHelp, completeData: completeData, limit: nil))
             sections.append(section)
             var section2 = SectionSubattributes()
-            section2.rows.append(TextRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .chssBeforeMedHelp,
-                                                                                                             requestOfSubattributeData: .title) as? String,
-                                                       subattribut: .chssBeforeMedHelp,
-                                                       text: completeData.completeTextData[.chssBeforeMedHelp],
-                                                       limit: nil))
-            section2.rows.append(TextRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .chssAfterMedHelp,
-                                                                                                             requestOfSubattributeData: .title) as? String,
-                                                       subattribut: .chssAfterMedHelp,
-                                                       text: completeData.completeTextData[.chssAfterMedHelp],
-                                                       limit: nil))
+            section2.rows.append(makeTextRow(subAttribute: .chssBeforeMedHelp,  completeData: completeData, limit: nil))
+            section2.rows.append(makeTextRow(subAttribute: .chssAfterMedHelp,  completeData: completeData, limit: nil))
             sections.append(section2)
             var section3 = SectionSubattributes()
-            section3.rows.append(TextRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .pBeforeMedHelp,
-                                                                                                             requestOfSubattributeData: .title) as? String,
-                                                       subattribut: .pBeforeMedHelp,
-                                                       text: completeData.completeTextData[.pBeforeMedHelp],
-                                                       limit: nil))
-            section3.rows.append(TextRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .pAfterMedHelp,
-                                                                                                             requestOfSubattributeData: .title) as? String,
-                                                       subattribut: .pAfterMedHelp,
-                                                       text: completeData.completeTextData[.pAfterMedHelp],
-                                                       limit: nil))
+            section3.rows.append(makeTextRow(subAttribute: .pBeforeMedHelp,  completeData: completeData, limit: nil))
+            section3.rows.append(makeTextRow(subAttribute: .pAfterMedHelp,  completeData: completeData, limit: nil))
             sections.append(section3)
             var section4 = SectionSubattributes()
-            section4.rows.append(TextRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .chddBeforeMedHelp,
-                                                                                                             requestOfSubattributeData: .title) as? String,
-                                                       subattribut: .chddBeforeMedHelp,
-                                                       text: completeData.completeTextData[.chddBeforeMedHelp],
-                                                       limit: nil))
-            section4.rows.append(TextRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .chddAfterMedHelp,
-                                                                                                             requestOfSubattributeData: .title) as? String,
-                                                       subattribut: .chddAfterMedHelp,
-                                                       text: completeData.completeTextData[.chddAfterMedHelp],
-                                                       limit: nil))
+            section4.rows.append(makeTextRow(subAttribute: .chddBeforeMedHelp,  completeData: completeData, limit: nil))
+            section4.rows.append(makeTextRow(subAttribute: .chddAfterMedHelp,  completeData: completeData, limit: nil))
             sections.append(section4)
             var section5 = SectionSubattributes()
-            section5.rows.append(TextRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .tBeforeMedHelp,
-                                                                                                             requestOfSubattributeData: .title) as? String,
-                                                       subattribut: .tBeforeMedHelp,
-                                                       text: completeData.completeTextData[.tBeforeMedHelp],
-                                                       limit: nil))
-            section5.rows.append(TextRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .tAfterMedHelp,
-                                                                                                             requestOfSubattributeData: .title) as? String,
-                                                       subattribut: .tAfterMedHelp,
-                                                       text: completeData.completeTextData[.tAfterMedHelp],
-                                                       limit: nil))
+            section5.rows.append(makeTextRow(subAttribute: .tBeforeMedHelp,  completeData: completeData, limit: nil))
+            section5.rows.append(makeTextRow(subAttribute: .tAfterMedHelp,  completeData: completeData, limit: nil))
             sections.append(section5)
             var section6 = SectionSubattributes()
-            section6.rows.append(TextRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .spOBeforeMedHelp,
-                                                                                                             requestOfSubattributeData: .title) as? String,
-                                                       subattribut: .spOBeforeMedHelp,
-                                                       text: completeData.completeTextData[.spOBeforeMedHelp],
-                                                       limit: nil))
-            section6.rows.append(TextRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .spOAfterMedHelp,
-                                                                                                             requestOfSubattributeData: .title) as? String,
-                                                       subattribut: .spOAfterMedHelp,
-                                                       text: completeData.completeTextData[.spOAfterMedHelp],
-                                                       limit: nil))
+            section6.rows.append(makeTextRow(subAttribute: .spOBeforeMedHelp,  completeData: completeData, limit: nil))
+            section6.rows.append(makeTextRow(subAttribute: .spOAfterMedHelp,  completeData: completeData, limit: nil))
             sections.append(section6)
             var section7 = SectionSubattributes()
-            section7.rows.append(TextRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .glukozaBeforeMedHelp,
-                                                                                                             requestOfSubattributeData: .title) as? String,
-                                                       subattribut: .glukozaBeforeMedHelp,
-                                                       text: completeData.completeTextData[.glukozaBeforeMedHelp],
-                                                       limit: nil))
-            section7.rows.append(TextRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .glukozaAfterMedHelp,
-                                                                                                             requestOfSubattributeData: .title) as? String,
-                                                       subattribut: .glukozaAfterMedHelp,
-                                                       text: completeData.completeTextData[.glukozaAfterMedHelp],
-                                                       limit: nil))
+            section7.rows.append(makeTextRow(subAttribute: .glukozaBeforeMedHelp,  completeData: completeData, limit: nil))
+            section7.rows.append(makeTextRow(subAttribute: .glukozaAfterMedHelp,  completeData: completeData, limit: nil))
             sections.append(section7)
-
+            
         case .assistanceProvided:
-            section.rows.append(TextRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .assistanceProvided,
-                                                                                                            requestOfSubattributeData: .title) as? String,
-                                                      subattribut: .assistanceProvided,
-                                                      text: completeData.completeTextData[.assistanceProvided],
-                                                      limit: nil))
+            section.rows.append(makeTextRow(subAttribute: .assistanceProvided, completeData: completeData, limit: nil))
             sections.append(section)
             completeData.indicator?.forEach { item in
                 var newSection = SectionSubattributes()
-                newSection.rows.append(TextRowOfSubattribute(title: "Время",
-                                                             subattribut: .timeIndicator,
-                                                             text: item.data[.timeIndicator],
-                                                             limit: nil))
-                newSection.rows.append(TextRowOfSubattribute(title: "АД",
-                                                             subattribut: .aDtimeIndicator,
-                                                             text: item.data[.aDtimeIndicator],
-                                                             limit: nil))
-                newSection.rows.append(TextRowOfSubattribute(title: "ЧСС",
-                                                             subattribut: .chssIndicator,
-                                                             text: item.data[.chssIndicator],
-                                                             limit: nil))
-                newSection.rows.append(TextRowOfSubattribute(title: "ЧДД",
-                                                             subattribut: .chddIndicator,
-                                                             text: item.data[.chddIndicator],
-                                                             limit: nil))
-                newSection.rows.append(TextRowOfSubattribute(title: "SpO₂",
-                                                             subattribut: .spoIndicator,
-                                                             text: item.data[.spoIndicator],
-                                                             limit: nil))
-                newSection.rows.append(TextRowOfSubattribute(title: "T°C",
-                                                             subattribut: .tempIndicator,
-                                                             text: item.data[.tempIndicator],
-                                                             limit: nil))
+                newSection.rows.append(TextRowOfSubattribute(title: "Время", subattribut: .timeIndicator,       text: item.data[.timeIndicator],       limit: nil))
+                newSection.rows.append(TextRowOfSubattribute(title: "АД", subattribut: .aDtimeIndicator,       text: item.data[.aDtimeIndicator],       limit: nil))
+                newSection.rows.append(TextRowOfSubattribute(title: "ЧСС", subattribut: .chssIndicator,       text: item.data[.chssIndicator],       limit: nil))
+                newSection.rows.append(TextRowOfSubattribute(title: "ЧДД",subattribut: .chddIndicator,       text: item.data[.chddIndicator],       limit: nil))
+                newSection.rows.append(TextRowOfSubattribute(title: "SpO₂",       subattribut: .spoIndicator,       text: item.data[.spoIndicator],       limit: nil))
+                newSection.rows.append(TextRowOfSubattribute(title: "T°C",       subattribut: .tempIndicator,       text: item.data[.tempIndicator],       limit: nil))
                 sections.append(newSection)
             }
         case .additionalAction:
-            section.rows.append(SelectRowOfSubattribute(
-                title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .resuscitation,
-                                                                      requestOfSubattributeData: .title) as? String,
-                subattribut: .resuscitation,
-                isSelected: completeData.completeSelectableData.contains(.resuscitation)))
-            section.rows.append(SelectRowOfSubattribute(title:
-                DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .ivl_vvl,
-                                                               requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .ivl_vvl,
-                                                        isSelected: completeData.completeSelectableData.contains(.ivl_vvl)))
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .nebulizer,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .nebulizer,
-                                                        isSelected: completeData.completeSelectableData.contains(.nebulizer)))
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .intubationAndlaryngitis,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .intubationAndlaryngitis,
-                                                        isSelected: completeData.completeSelectableData.contains(.intubationAndlaryngitis)))
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .conicotomy,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .conicotomy,
-                                                        isSelected: completeData.completeSelectableData.contains(.conicotomy)))
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .trachestomy,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .trachestomy,
-                                                        isSelected: completeData.completeSelectableData.contains(.trachestomy)))
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .eit,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .eit,
-                                                        isSelected: completeData.completeSelectableData.contains(.eit)))
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .thrombolysis,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .thrombolysis,
-                                                        isSelected: completeData.completeSelectableData.contains(.thrombolysis)))
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .catheterMoch,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .catheterMoch,
-                                                        isSelected: completeData.completeSelectableData.contains(.catheterMoch)))
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .pills,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .pills,
-                                                        isSelected: completeData.completeSelectableData.contains(.pills)))
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .rinsingStomach,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .rinsingStomach,
-                                                        isSelected: completeData.completeSelectableData.contains(.rinsingStomach)))
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .pulseoximetry,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .pulseoximetry,
-                                                        isSelected: completeData.completeSelectableData.contains(.pulseoximetry)))
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .infusion,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .infusion,
-                                                        isSelected: completeData.completeSelectableData.contains(.infusion)))
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .catheterVV,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .catheterVV,
-                                                        isSelected: completeData.completeSelectableData.contains(.catheterVV)))
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .ostBlodRan,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .ostBlodRan,
-                                                        isSelected: completeData.completeSelectableData.contains(.ostBlodRan)))
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .bandage,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .bandage,
-                                                        isSelected: completeData.completeSelectableData.contains(.bandage)))
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .immobilization,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .immobilization,
-                                                        isSelected: completeData.completeSelectableData.contains(.immobilization)))
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .defibrillation,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .defibrillation,
-                                                        isSelected: completeData.completeSelectableData.contains(.defibrillation)))
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .nasalTamponade,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .nasalTamponade,
-                                                        isSelected: completeData.completeSelectableData.contains(.nasalTamponade)))
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .conicotomy,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .conicotomy,
-                                                        isSelected: completeData.completeSelectableData.contains(.conicotomy)))
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .ecgMonitor,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .ecgMonitor,
-                                                        isSelected: completeData.completeSelectableData.contains(.ecgMonitor)))
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .injections,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .injections,
-                                                        isSelected: completeData.completeSelectableData.contains(.injections)))
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .inhalation,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .inhalation,
-                                                        isSelected: completeData.completeSelectableData.contains(.inhalation)))
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .troponin,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .troponin,
-                                                        isSelected: completeData.completeSelectableData.contains(.troponin)))
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .glucoseMonitoring,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .glucoseMonitoring,
-                                                        isSelected: completeData.completeSelectableData.contains(.glucoseMonitoring)))
-            section.rows.append(SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .expenditure,
-                                                                                                              requestOfSubattributeData: .title) as? String,
-                                                        subattribut: .expenditure,
-                                                        isSelected: completeData.completeSelectableData.contains(.expenditure)))
+            section.rows.append(makeSelectableRow(subAttribute: .resuscitation, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .ivl_vvl, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .nebulizer, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .intubationAndlaryngitis, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .conicotomy, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .trachestomy, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .eit, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .thrombolysis, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .catheterMoch, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .pills, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .rinsingStomach, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .pulseoximetry, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .infusion, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .catheterVV, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .ostBlodRan, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .bandage, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .immobilization, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .defibrillation, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .nasalTamponade, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .conicotomy, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .ecgMonitor, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .injections, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .inhalation, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .troponin, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .glucoseMonitoring, completeData: completeData))
+            section.rows.append(makeSelectableRow(subAttribute: .expenditure, completeData: completeData))
             sections.append(section)
-
+            
         case .consumption:
-            section.rows.append(TextRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .masks,
-                                                                                                            requestOfSubattributeData: .title) as? String,
-                                                      subattribut: .masks,
-                                                      text: completeData.completeTextData[.masks],
-                                                      limit: nil))
-            section.rows.append(TextRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .gloves,
-                                                                                                            requestOfSubattributeData: .title) as? String,
-                                                      subattribut: .gloves,
-                                                      text: completeData.completeTextData[.gloves],
-                                                      limit: nil))
-            section.rows.append(TextRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .napkins,
-                                                                                                            requestOfSubattributeData: .title) as? String,
-                                                      subattribut: .napkins,
-                                                      text: completeData.completeTextData[.napkins],
-                                                      limit: nil))
-            section.rows.append(TextRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .siz,
-                                                                                                            requestOfSubattributeData: .title) as? String,
-                                                      subattribut: .siz,
-                                                      text: completeData.completeTextData[.siz],
-                                                      limit: nil))
-            section.rows.append(TextRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .catheterPerefirichesky,
-                                                                                                            requestOfSubattributeData: .title) as? String,
-                                                      subattribut: .catheterPerefirichesky,
-                                                      text: completeData.completeTextData[.catheterPerefirichesky],
-                                                      limit: nil))
-            section.rows.append(TextRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .catheterUrinary,
-                                                                                                            requestOfSubattributeData: .title) as? String,
-                                                      subattribut: .catheterUrinary,
-                                                      text: completeData.completeTextData[.catheterUrinary],
-                                                      limit: nil))
-            section.rows.append(TextRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .bandages,
-                                                                                                            requestOfSubattributeData: .title) as? String,
-                                                      subattribut: .bandages,
-                                                      text: completeData.completeTextData[.bandages],
-                                                      limit: nil))
-            section.rows.append(TextRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .infusionSystem,
-                                                                                                            requestOfSubattributeData: .title) as? String,
-                                                      subattribut: .infusionSystem,
-                                                      text: completeData.completeTextData[.infusionSystem],
-                                                      limit: nil))
-            section.rows.append(TextRowOfSubattribute(title: nil,
-                                                      subattribut: .consumptionText,
-                                                      text: completeData.completeTextData[.consumptionText],
-                                                      limit: nil))
+            section.rows.append(makeTextRow(subAttribute: .masks, completeData: completeData, limit: nil))
+            section.rows.append(makeTextRow(subAttribute: .gloves, completeData: completeData, limit: nil))
+            section.rows.append(makeTextRow(subAttribute: .napkins, completeData: completeData, limit: nil))
+            section.rows.append(makeTextRow(subAttribute: .siz, completeData: completeData, limit: nil))
+            section.rows.append(makeTextRow(subAttribute: .catheterPerefirichesky, completeData: completeData, limit: nil))
+            section.rows.append(makeTextRow(subAttribute: .catheterUrinary, completeData: completeData, limit: nil))
+            section.rows.append(makeTextRow(subAttribute: .bandages, completeData: completeData, limit: nil))
+            section.rows.append(makeTextRow(subAttribute: .infusionSystem, completeData: completeData, limit: nil))
+            section.rows.append(makeTextRow(subAttribute: .consumptionText, completeData: completeData, limit: nil))
             sections.append(section)
         }
         return  sections
     }
+    
+    private func makeTextRow(subAttribute: SubAttribute, completeData: CompleteData, limit: Int?) -> TextRowOfSubattribute {
+        return TextRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: .infusionSystem,
+                                                                                           requestOfSubattributeData: .title) as? String,
+                                     subattribut: .infusionSystem,
+                                     text: completeData.completeTextData[.infusionSystem],
+                                     limit: nil)
+    }
+    
+    private func makeSelectableRow(subAttribute: SubAttribute, completeData: CompleteData) -> SelectRowOfSubattribute {
+        return SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: subAttribute,
+                                                                                             requestOfSubattributeData: .title) as? String,
+                                       subattribut: subAttribute,
+                                       isSelected: completeData.completeSelectableData.contains(subAttribute))
+    }
+    
 }

@@ -304,6 +304,7 @@ enum SubAttribute: String, Codable{
     case masks
     case gloves
     case napkins
+    case syringe
     case siz
     case catheterPerefirichesky
     case catheterUrinary

@@ -105,6 +105,7 @@ class StoreDataManager: Storrable {
         }
     }
     
+    
     init(withStorageType storageType: StorageType) {
         firestoreManager = FirestoreManager(withStorageType: storageType)
         realmManager = RealmManager(withStorageType: storageType)

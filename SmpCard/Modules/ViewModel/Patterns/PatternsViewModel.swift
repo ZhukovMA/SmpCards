@@ -55,9 +55,11 @@ class PatternsViewModel: PatternsViewModelType, CardViewModelDelegate {
                 storrage.create(completeData: completeData)
             }
         case .update:
-            if !isContainDiagnosis(completeData: completeData) {
-                cardComplete(completeData: completeData, onRequest: .create)
-                return
+            if let id = completeData.id {
+                storrage.update(completeData: completeData, indexPathRow: getIndexPathRow(forCompleteDataID: id))
+            } else {
+//                 completeData.id = "\(completeData.completeTextData[.diagnose]!)" + "\(UUID().uuidString)"
+//                storrage.update(completeData: completeData, indexPathRow: getIndexPathRow(forCompleteDataID: completeData.id))
             }
         }
         
@@ -97,8 +99,7 @@ class PatternsViewModel: PatternsViewModelType, CardViewModelDelegate {
         if isFiltered {
             return CardViewModel(completeData:  filteredPatterns.data[indexPath.row], request: .update, from: .pattern)
         }
-        let cd = CompleteData(completeTextData: pattensCompleteData.data[indexPath.row].completeTextData, completeSelectableData: pattensCompleteData.data[indexPath.row].completeSelectableData, indicator: pattensCompleteData.data[indexPath.row].indicator)
-        return CardViewModel(completeData: cd, request: .update, from: .pattern)
+        return CardViewModel(completeData:  pattensCompleteData.data[indexPath.row], request: .update, from: .pattern)
     }
     
     func cellViewModel(forIndexPath indexPath: IndexPath, isFiltering: Bool) -> PatternsCellViewModelType? {

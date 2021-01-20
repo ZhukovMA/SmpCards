@@ -98,14 +98,7 @@ class MainTableViewContoller: UITableViewController {
         }
         navigationController?.pushViewController(patternController, animated: false)
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        UIView.setAnimationsEnabled(false)
-        tableView?.beginUpdates()
-        tableView?.endUpdates()
-        UIView.setAnimationsEnabled(true)
-    }
+ 
     
     private func setUpActivityView() {
         activityView.translatesAutoresizingMaskIntoConstraints = false
@@ -123,7 +116,9 @@ class MainTableViewContoller: UITableViewController {
         if isFirstViewWillAppear {
             setUpActivityView()
             isFirstViewWillAppear.toggle()
-        } 
+        } else {
+            viewModel.fetchUpdatedData(completion: completion)
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {

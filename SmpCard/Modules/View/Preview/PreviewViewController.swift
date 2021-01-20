@@ -51,7 +51,7 @@ class PreviewViewController: UIViewController {
                 paragraphStyle.lineSpacing = CGFloat(data.0.lineSpacing)
                 
                 let textFontAttributes = [
-                    NSAttributedString.Key.font: nextData.shouldReduce ? UIFont(name: "Verdana", size: 5)! : font!,
+                    NSAttributedString.Key.font: nextData.shouldReduce ? UIFont(name: "Verdana", size: 5.5)! : font!,
                     NSAttributedString.Key.foregroundColor: textColor,
                     NSAttributedString.Key.paragraphStyle: paragraphStyle,
                 ]
