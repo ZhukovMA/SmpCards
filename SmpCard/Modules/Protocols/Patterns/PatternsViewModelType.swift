@@ -9,7 +9,7 @@
 import Foundation
 
 protocol PatternsViewModelType {
-    func fetchUpdatedData(completion: @escaping (_: StorrageResponse) -> Void) 
+    func fetchUpdatedData(completion: @escaping (_: StorrageResponse) -> Void)
     func filterContentForSearchText(_ searchText: String, completion: @escaping (_ response: Result<String, Error>) -> Void)
     func fetchFromLocalStorrage(completion: @escaping (StorrageResponse) -> Void)
     var numberOfFilteredPatterns: Int {get}
@@ -19,5 +19,5 @@ protocol PatternsViewModelType {
     func cellViewModel(forIndexPath indexPath: IndexPath, isFiltering: Bool) -> PatternsCellViewModelType?
     var numberOfPatterns: Int {get}
     func emptyCardViewModel() -> CardViewModelType?
-    func cardViewModel(forIndexPath indexPath: IndexPath, isFiltered: Bool) -> CardViewModelType?
+    func cardViewModel(forIndexPath indexPath: IndexPath, isFiltered: Bool, request: Request) -> CardViewModelType?
 }

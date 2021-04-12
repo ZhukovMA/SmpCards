@@ -102,11 +102,11 @@ class PreviewViewModel: PreviewViewModelType {
     
     private func getFullTextOfCompleteTextData(frame:FrameOfSubAttribute, subAttribute: SubAttribute, text: String) -> String {
         var _text = String()
-        if subAttribute == .assistanceProvided {
-            _text += DataManager.shared.getTextOfSelectableAttribute(completeData: completeData, selectableAttribute: .assistanceProvided, forPreview: true)
-        } else {
+//        if subAttribute == .assistanceProvided {
+//            _text += DataManager.shared.getTextOfSelectableAttribute(completeData: completeData, selectableAttribute: .assistanceProvided, forPreview: true)
+//        } else {
             _text = getTextOfCompleteTextData(frame: frame, data: text)
-        }
+//        }
         addTheUnitsOfMeasurement(text: &_text, subAttr: subAttribute)
         return _text
     }

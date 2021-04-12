@@ -43,12 +43,12 @@ class PatternsViewModel: PatternsViewModelType, CardViewModelDelegate {
     //MARK:- from CardViewModel
     
     func cardComplete(completeData: CompleteData, onRequest: Request) {
-        delegate?.cardComplete(completeData: CompleteData(completeTextData: completeData.completeTextData, completeSelectableData: completeData.completeSelectableData, indicator: completeData.indicator),
-            onRequest: .create)
         completeData.name = completeData.completeTextData[.name]
         completeData.diagnose = completeData.completeTextData[.diagnose]
         switch onRequest {
         case .create:
+            delegate?.cardComplete(completeData: CompleteData(completeTextData: completeData.completeTextData, completeSelectableData: completeData.completeSelectableData, indicator: completeData.indicator),
+                    onRequest: .create)
             if let _ = completeData.completeTextData[.diagnose], !isContainDiagnosis(completeData: completeData) {
                 completeData.id = "\(completeData.completeTextData[.diagnose]!)" + "\(UUID().uuidString)"
                 pattensCompleteData.data.append(completeData)
@@ -57,9 +57,6 @@ class PatternsViewModel: PatternsViewModelType, CardViewModelDelegate {
         case .update:
             if let id = completeData.id {
                 storrage.update(completeData: completeData, indexPathRow: getIndexPathRow(forCompleteDataID: id))
-            } else {
-//                 completeData.id = "\(completeData.completeTextData[.diagnose]!)" + "\(UUID().uuidString)"
-//                storrage.update(completeData: completeData, indexPathRow: getIndexPathRow(forCompleteDataID: completeData.id))
             }
         }
         
@@ -95,11 +92,11 @@ class PatternsViewModel: PatternsViewModelType, CardViewModelDelegate {
         return CardViewModel(completeData: CompleteData(), request: .create, from: .pattern)
     }
     
-    func cardViewModel(forIndexPath indexPath: IndexPath, isFiltered: Bool) -> CardViewModelType? {
+    func cardViewModel(forIndexPath indexPath: IndexPath, isFiltered: Bool, request: Request) -> CardViewModelType? {
         if isFiltered {
-            return CardViewModel(completeData:  filteredPatterns.data[indexPath.row], request: .update, from: .pattern)
+            return CardViewModel(completeData:  filteredPatterns.data[indexPath.row], request: request, from: .pattern)
         }
-        return CardViewModel(completeData:  pattensCompleteData.data[indexPath.row], request: .update, from: .pattern)
+        return CardViewModel(completeData:  pattensCompleteData.data[indexPath.row], request: request, from: .pattern)
     }
     
     func cellViewModel(forIndexPath indexPath: IndexPath, isFiltering: Bool) -> PatternsCellViewModelType? {

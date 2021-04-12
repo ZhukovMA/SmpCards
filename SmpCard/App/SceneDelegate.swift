@@ -13,28 +13,34 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
+   
+   
         
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         if let windowScene = scene as? UIWindowScene {
+            UINavigationBar.appearance().titleTextAttributes = [.font: UIFont(name: "Verdana", size: 18)!, .foregroundColor: UIColor.white]
+            UINavigationBar.appearance().backgroundColor = #colorLiteral(red: 0.09766118973, green: 0.09708828479, blue: 0.09810651094, alpha: 1)
+            UINavigationBar.appearance().shadowImage = UIImage()
+            UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
             let window = UIWindow(windowScene: windowScene)
+            self.window = window
             switch AuthService.shared.checkAuthentication() {
             case .signed:
                 let mainController = MainTableViewContoller()
                 mainController.viewModel = MainViewModel()
                 let navController = UINavigationController(rootViewController: mainController)
-                let navBarAppearance = UINavigationBarAppearance()
-                navBarAppearance.titleTextAttributes = [.font: UIFont(name: "Verdana", size: 18)!, .foregroundColor: UIColor.white]
-                navBarAppearance.largeTitleTextAttributes = [.font: UIFont(name: "Verdana", size: 18)!, .foregroundColor: UIColor.white]
-                navBarAppearance.backgroundColor = #colorLiteral(red: 0.1410270631, green: 0.1353317499, blue: 0.1623338163, alpha: 1)
-                navController.navigationBar.standardAppearance = navBarAppearance
-                navController.navigationBar.scrollEdgeAppearance = navBarAppearance
+                if let statusBarFrame  = windowScene.statusBarManager?.statusBarFrame {
+                    let statusBarView = UIView(frame: statusBarFrame)
+                    statusBarView.backgroundColor = #colorLiteral(red: 0.09766118973, green: 0.09708828479, blue: 0.09810651094, alpha: 1)
+                    navController.view.addSubview(statusBarView)
+                }
                 window.rootViewController = navController
             case .signedOut:
                 let authController = AuthViewController()
                 authController.viewModel = AuthViewModel()
                 window.rootViewController = authController
             }
-            self.window = window
+         
             window.makeKeyAndVisible()
         }
     }
@@ -70,3 +76,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
 }
 
+extension UINavigationController {
+
+    func setStatusBar(backgroundColor: UIColor) {
+        let statusBarFrame: CGRect = UIApplication.shared.statusBarFrame
+        let statusBarView = UIView(frame: statusBarFrame)
+        statusBarView.backgroundColor = backgroundColor
+        view.addSubview(statusBarView)
+    }
+
+}

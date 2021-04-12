@@ -11,6 +11,8 @@ import UIKit
 
 class MainTableViewContoller: UITableViewController {
     let cellID = "Cell"
+    var keyboardHeight: CGFloat!
+
     var isReachedTheEndOfTable = true
     var viewModel: MainViewModelType!
     private var patternController: PatternsTableViewController!
@@ -46,6 +48,7 @@ class MainTableViewContoller: UITableViewController {
                 self.tableView.reloadData()
             }
         }
+        if KeyboardService.shared.height == 0.0 { self.setKeyboardHeight() }
     }
     
     let activityView = UIActivityIndicatorView(style: .medium)
@@ -72,9 +75,10 @@ class MainTableViewContoller: UITableViewController {
     }
     
     private func initTableView() {
-        tableView = UITableView(frame: view.frame, style: .grouped)
-        tableView.separatorColor = #colorLiteral(red: 0.365568012, green: 0.3719425201, blue: 0.3995776176, alpha: 1)
-        tableView.backgroundColor = #colorLiteral(red: 0.1298618913, green: 0.131595701, blue: 0.1584605277, alpha: 1)
+        tableView = UITableView(frame: view.frame, style: .plain)
+        tableView.separatorColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 0.2729022298)
+        tableView.separatorStyle = .singleLine
+        tableView.backgroundColor = #colorLiteral(red: 0.09766118973, green: 0.09708828479, blue: 0.09810651094, alpha: 1)
         tableView.delegate = self
         tableView.showsVerticalScrollIndicator = false
         tableView.dataSource = self
@@ -84,6 +88,12 @@ class MainTableViewContoller: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillShow),
+            name: UIResponder.keyboardWillShowNotification,
+            object: nil
+        )
         title = "История"
         initTableView()
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
@@ -98,7 +108,34 @@ class MainTableViewContoller: UITableViewController {
         }
         navigationController?.pushViewController(patternController, animated: false)
     }
- 
+    
+    private func setKeyboardHeight() {
+        let textField = UITextField()
+        let doneToolbar: UIToolbar = UIToolbar(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50))
+        doneToolbar.barStyle = .default
+
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let done: UIBarButtonItem = UIBarButtonItem(title: "Готово", style: .done, target: self, action: #selector(self.doneButtonAction))
+
+        let items = [flexSpace, done]
+        doneToolbar.items = items
+        doneToolbar.sizeToFit()
+
+        textField.inputAccessoryView = doneToolbar
+        view.addSubview(textField)
+        textField.becomeFirstResponder()
+        textField.resignFirstResponder()
+        textField.removeFromSuperview()
+    }
+    
+    @objc func doneButtonAction() {}
+    
+    @objc func keyboardWillShow(_ notification: Notification) {
+        let info = notification.userInfo!
+        let keyboardFrame: CGRect = (info[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        KeyboardService.shared.height = keyboardFrame.height
+    }
+    
     
     private func setUpActivityView() {
         activityView.translatesAutoresizingMaskIntoConstraints = false
@@ -137,7 +174,9 @@ class MainTableViewContoller: UITableViewController {
     }
    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cardController = CardTableViewController()
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        let cardController = CardPageViewController()
         cardController.viewModel = viewModel.cardViewModel(forIndexPath: indexPath, isFiltered: historySearchController.isFiltering)
         cardController.viewModel?.delegate = viewModel as? CardViewModelDelegate
         navigationController?.pushViewController(cardController, animated: false)
@@ -159,7 +198,7 @@ class MainTableViewContoller: UITableViewController {
         cell.viewModel = viewModel.cellViewModel(forIndexPath: indexPath, isFiltering: historySearchController.isFiltering)
         return cell
     }
-    
+
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if !isReachedTheEndOfTable, indexPath.row + 1 == viewModel.numberOfProfiles {
             isReachedTheEndOfTable = true

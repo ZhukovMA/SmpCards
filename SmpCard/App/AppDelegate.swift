@@ -22,6 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             userDefaults.set(true, forKey: "hasRunBefore")
             userDefaults.synchronize()
         }
+        
+        
         return true
     }
 

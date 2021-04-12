@@ -21,12 +21,10 @@ class MainCellVIewModel: MainCellViewModelType {
         if let date = completeDate, let millisecond = Double(date) {
             let date = Date(timeIntervalSince1970: TimeInterval(millisecond))
             let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "dd MMMM, yyyy | HH:mm"
+            dateFormatter.dateFormat = "dd MMMM YYYY, HH:mm"
             dateFormatter.locale = Locale(identifier: "RU")
             completeDate = dateFormatter.string(from: date as Date)
-        } else {
-            print(1)
-        }
+        } 
         return completeDate
     }
     

@@ -102,8 +102,5 @@ class PreviewViewController: UIViewController {
         }
     }
     
-    deinit {
-        print("")
-    }
     
 }

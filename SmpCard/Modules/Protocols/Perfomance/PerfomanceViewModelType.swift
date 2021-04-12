@@ -12,7 +12,7 @@ import Foundation
 
 protocol PerfomanceViewModelType {
     func sendCompleteData()
-    func cellViewModel(forIndexPath indexPath: IndexPath) -> PerfomanceCellViewModelType?
+//    func cellViewModel(forIndexPath indexPath: IndexPath) -> PerfomanceCellViewModelType?
     func numberOfRowInSection(section: Int) -> Int
     var numberOfSection: Int  {get}
     

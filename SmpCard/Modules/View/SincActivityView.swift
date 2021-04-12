@@ -12,7 +12,7 @@ import UIKit
     
     let view: UIView = {
         let view = UIView()
-        view.backgroundColor = #colorLiteral(red: 0.1981339753, green: 0.202637136, blue: 0.249553293, alpha: 1)
+        view.backgroundColor = #colorLiteral(red: 0.09766118973, green: 0.09708828479, blue: 0.09810651094, alpha: 1)
         view.layer.cornerRadius = 20
         view.clipsToBounds = true
         view.translatesAutoresizingMaskIntoConstraints = false

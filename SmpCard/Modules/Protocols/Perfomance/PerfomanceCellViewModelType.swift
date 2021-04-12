@@ -9,10 +9,10 @@
 import Foundation
 
 
-
-protocol PerfomanceCellViewModelType: AdditionalCell {
-    func getText() -> String?
-    func getTitle() -> String?
-
-    func sendText(text: String?)
-}
+//
+//protocol PerfomanceCellViewModelType: AdditionalCell {
+//    func getText() -> String?
+//    func getTitle() -> String?
+//
+//    func sendText(text: String?)
+//}

@@ -119,18 +119,16 @@ class AuthViewController: UIViewController {
         singInActivityView.view.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor).isActive = true
         singInActivityView.view.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor).isActive = true
         viewModel?.signIn(email: loginTextField.text ?? "", password: passwordTextField.text ?? "") { (result) in
-            print(result)
             switch result {
             case .success(_):
                 let mainController = MainTableViewContoller()
                 mainController.viewModel = MainViewModel()
                 let navController = UINavigationController(rootViewController: mainController)
-                let navBarAppearance = UINavigationBarAppearance()
-                navBarAppearance.titleTextAttributes = [.font: UIFont(name: "Verdana", size: 18)!, .foregroundColor: UIColor.white]
-                navBarAppearance.largeTitleTextAttributes = [.font: UIFont(name: "Verdana", size: 18)!, .foregroundColor: UIColor.white]
-                navBarAppearance.backgroundColor = #colorLiteral(red: 0.1410270631, green: 0.1353317499, blue: 0.1623338163, alpha: 1)
-                navController.navigationBar.standardAppearance = navBarAppearance
-                navController.navigationBar.scrollEdgeAppearance = navBarAppearance
+                if let statusBarFrame  = self.view.window?.windowScene?.statusBarManager?.statusBarFrame {
+                    let statusBarView = UIView(frame: statusBarFrame)
+                    statusBarView.backgroundColor = #colorLiteral(red: 0.09766118973, green: 0.09708828479, blue: 0.09810651094, alpha: 1)
+                    navController.view.addSubview(statusBarView)
+                }
                 UIApplication.shared.windows.first?.rootViewController = navController
                 self.singInActivityView.view.removeFromSuperview()
             case .failure(let error):
@@ -198,9 +196,7 @@ class AuthViewController: UIViewController {
         
     }
     
-    deinit {
-        print(#function, " ", self)
-    }
+  
 }
 
 extension AuthViewController: UITextFieldDelegate {

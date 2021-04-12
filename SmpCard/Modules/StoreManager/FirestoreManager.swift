@@ -8,6 +8,8 @@
 
 import Foundation
 import Firebase
+import FirebaseFirestore
+
 
 protocol CloudStorage {
     func find( selectedData: SelectedData, letter: String, completion: @escaping (_ response: Result<String, Error>) -> Void)

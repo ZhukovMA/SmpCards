@@ -602,7 +602,7 @@ extension DataManager {
         case .dyspneaIsmixed:
             switch requestOfSubattributeData {
             case .title:
-                return "смешанная"
+                return "смешная"
             case .frame:
                 return [FrameOfSubAttribute(x: 352.5, y: 291.5, weight: 5, height: 13, paragraphLenght: 0, lineSpacing: 3, isMain: true)]
             }
@@ -1459,7 +1459,7 @@ extension DataManager {
         case .inhalation:
             switch requestOfSubattributeData {
             case .title:
-                return "Ингаляция О"
+                return "Ингаляция O₂"
             case .frame:
                 return [FrameOfSubAttribute(x: 236, y: 721, weight: 20, height: 13, paragraphLenght: 0, lineSpacing: 3, isMain: true)]
             }

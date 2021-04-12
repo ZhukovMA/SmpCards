@@ -1,3 +1,100 @@
+////
+////  TableViewCell.swift
+////  SMPCards
+////
+////  Created by Максим Жуков on 03.11.2020.
+////  Copyright © 2020 Максим Жуков. All rights reserved.
+////
+//
+//import UIKit
+//
+//class MainTableViewCell: UITableViewCell {
+//
+//
+//
+//    lazy var  numberOfCardAndDiagnosisLabel:UILabel = {
+//        let label = UILabel()
+//        label.font = UIFont(name: "Verdana", size: 17)
+//        label.textColor = #colorLiteral(red: 0.9650822282, green: 0.9695481658, blue: 0.9804657102, alpha: 1)
+//        label.translatesAutoresizingMaskIntoConstraints = false
+//        return label
+//    }()
+//
+//
+//
+//    lazy var dateLabel:UILabel = {
+//        let label = UILabel()
+//        label.font = UIFont(name: "Verdana", size: 14)
+//        label.textColor = #colorLiteral(red: 0.8159223199, green: 0.8196992278, blue: 0.8289279342, alpha: 1)
+//        label.translatesAutoresizingMaskIntoConstraints = false
+//        return label
+//    }()
+//
+//
+//
+//
+//
+//    lazy var nameLabel:UILabel = {
+//        let label = UILabel()
+//        label.font = UIFont(name: "Verdana", size: 17)
+//        label.textColor = #colorLiteral(red: 0.9650822282, green: 0.9695481658, blue: 0.9804657102, alpha: 1)
+//        label.translatesAutoresizingMaskIntoConstraints = false
+//        return label
+//    }()
+//
+//    var viewModel: MainCellViewModelType! {
+//        didSet {
+//            let numberOfCard = viewModel.numberOfCard != nil ? "№" + viewModel.numberOfCard! : ""
+//            let diagnosis = viewModel.diagnosis != nil ?  ", " +  viewModel.diagnosis! : ""
+//            self.numberOfCardAndDiagnosisLabel.text = numberOfCard + diagnosis
+//            self.dateLabel.text = viewModel.date
+//            self.nameLabel.text = viewModel.name
+//        }
+//    }
+//
+//    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+//        super.init(style: style, reuseIdentifier: reuseIdentifier)
+////        contentView.heightAnchor.constraint(equalToConstant: 80).isActive = true
+//        selectionStyle = .none
+//        self.backgroundColor = #colorLiteral(red: 0.1566217244, green: 0.1594332755, blue: 0.1943226159, alpha: 1)
+//
+//        self.contentView.addSubview(numberOfCardAndDiagnosisLabel)
+//        self.contentView.addSubview(dateLabel)
+//        self.contentView.addSubview(nameLabel)
+//
+//        numberOfCardAndDiagnosisLabel.topAnchor.constraint(equalTo: contentView.topAnchor,constant: 5).isActive = true
+//        numberOfCardAndDiagnosisLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 10).isActive = true
+//        numberOfCardAndDiagnosisLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -10).isActive = true
+//        numberOfCardAndDiagnosisLabel.bottomAnchor.constraint(equalTo: nameLabel.topAnchor, constant: -5).isActive = true
+//
+//
+//        //------------------------------------------------------------------
+//
+//        nameLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
+//
+//        nameLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 10).isActive = true
+//        nameLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -10).isActive = true
+//
+//        //------------------------------------------------------------------
+//
+//        dateLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor,constant: 5).isActive = true
+//        dateLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 10).isActive = true
+//        dateLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10).isActive = true
+//
+//
+//
+//
+//
+//    }
+//
+//    required init?(coder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
+//
+//
+//
+//}
+
 //
 //  TableViewCell.swift
 //  SMPCards
@@ -9,137 +106,88 @@
 import UIKit
 
 class MainTableViewCell: UITableViewCell {
-    
-    lazy var  numberOfCardTitleLabel:UILabel = {
+
+
+
+    lazy var  numberOfCardAndDiagnosisLabel:UILabel = {
         let label = UILabel()
-        label.text = "№ карты:"
-        label.font = UIFont(name: "Verdana", size: 16)
-        label.textColor = #colorLiteral(red: 0.4667062759, green: 0.6879578233, blue: 0.6657694578, alpha: 1)
+        label.font = UIFont(name: "Verdana", size: 17)
+        label.textColor = #colorLiteral(red: 0.9547525048, green: 0.9635617137, blue: 0.9856582284, alpha: 1)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    
-    lazy var  numberOfCardLabel:UILabel = {
-        let label = UILabel()
-        label.font = UIFont(name: "Verdana", size: 16)
-        label.textColor = #colorLiteral(red: 0.968627451, green: 0.968627451, blue: 0.968627451, alpha: 1)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    lazy var dateTitleLabel:UILabel = {
-        let label = UILabel()
-        label.text = "дата:"
-        label.font = UIFont(name: "Verdana", size: 16)
-        label.textColor = #colorLiteral(red: 0.4667062759, green: 0.6879578233, blue: 0.6657694578, alpha: 1)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
+
+
+
     lazy var dateLabel:UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Verdana", size: 16)
-        label.textColor = #colorLiteral(red: 0.968627451, green: 0.968627451, blue: 0.968627451, alpha: 1)
+        label.font = UIFont(name: "Verdana", size: 14)
+        label.textColor = #colorLiteral(red: 0.8159223199, green: 0.8196992278, blue: 0.8289279342, alpha: 1)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    
-    lazy var diagnosisTitleLabel:UILabel = {
-        let label = UILabel()
-        label.text = "диагноз:"
-        label.font = UIFont(name: "Verdana", size: 16)
-        label.textColor = #colorLiteral(red: 0.4667062759, green: 0.6879578233, blue: 0.6657694578, alpha: 1)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    lazy var diagnosisLabel:UILabel = {
-        let label = UILabel()
-        label.font = UIFont(name: "Verdana", size: 16)
-        label.textColor = #colorLiteral(red: 0.968627451, green: 0.968627451, blue: 0.968627451, alpha: 1)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    lazy var nameTitleLabel:UILabel = {
-        let label = UILabel()
-        label.text = "ФИО:"
-        label.font = UIFont(name: "Verdana", size: 16)
-        label.textColor = #colorLiteral(red: 0.4667062759, green: 0.6879578233, blue: 0.6657694578, alpha: 1)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
+
+
+
+
+
     lazy var nameLabel:UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Verdana", size: 16)
-        label.textColor = #colorLiteral(red: 0.968627451, green: 0.968627451, blue: 0.968627451, alpha: 1)
+        label.font = UIFont(name: "Verdana", size: 17)
+        label.textColor = #colorLiteral(red: 0.9547525048, green: 0.9635617137, blue: 0.9856582284, alpha: 1)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    
+
     var viewModel: MainCellViewModelType! {
         didSet {
-            self.numberOfCardLabel.text = viewModel.numberOfCard
+            let numberOfCard = viewModel.numberOfCard != nil ? "№" + viewModel.numberOfCard! : ""
+            let diagnosis = viewModel.diagnosis != nil ?  ", " +  viewModel.diagnosis! : ""
+            self.numberOfCardAndDiagnosisLabel.text = numberOfCard + diagnosis
             self.dateLabel.text = viewModel.date
-            self.diagnosisLabel.text = viewModel.diagnosis
             self.nameLabel.text = viewModel.name
         }
     }
-    
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-//        contentView.heightAnchor.constraint(equalToConstant: 80).isActive = true
         selectionStyle = .none
-        self.backgroundColor = #colorLiteral(red: 0.1566217244, green: 0.1594332755, blue: 0.1943226159, alpha: 1)
+        self.backgroundColor = #colorLiteral(red: 0.09766118973, green: 0.09708828479, blue: 0.09810651094, alpha: 1)
 
-        self.contentView.addSubview(numberOfCardLabel)
+
+        self.contentView.addSubview(numberOfCardAndDiagnosisLabel)
         self.contentView.addSubview(dateLabel)
-        self.contentView.addSubview(diagnosisLabel)
         self.contentView.addSubview(nameLabel)
-        self.contentView.addSubview(numberOfCardTitleLabel)
-        self.contentView.addSubview(dateTitleLabel)
-        self.contentView.addSubview(diagnosisTitleLabel)
-        self.contentView.addSubview(nameTitleLabel)
-        
-        numberOfCardTitleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5).isActive = true
-        numberOfCardTitleLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 10).isActive = true
-        
-        numberOfCardLabel.topAnchor.constraint(equalTo: numberOfCardTitleLabel.topAnchor).isActive = true
-        numberOfCardLabel.leftAnchor.constraint(equalTo: numberOfCardTitleLabel.rightAnchor, constant: 10).isActive = true
-        
-        //------------------------------------------------------------------
-        
-        dateTitleLabel.topAnchor.constraint(equalTo: numberOfCardTitleLabel.bottomAnchor, constant: 5).isActive = true
-        dateTitleLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 10).isActive = true
-        
-        dateLabel.topAnchor.constraint(equalTo: dateTitleLabel.topAnchor).isActive = true
-        dateLabel.leftAnchor.constraint(equalTo: dateTitleLabel.rightAnchor, constant: 10).isActive = true
-        
+
+        dateLabel.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+        dateLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 10).isActive = true
+        dateLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -10).isActive = true
+        dateLabel.bottomAnchor.constraint(equalTo: nameLabel.topAnchor).isActive = true
+
+
         //------------------------------------------------------------------
 
-        diagnosisTitleLabel.topAnchor.constraint(equalTo: dateTitleLabel.bottomAnchor, constant: 5).isActive = true
-        diagnosisTitleLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 10).isActive = true
-        
-        diagnosisLabel.topAnchor.constraint(equalTo: diagnosisTitleLabel.topAnchor).isActive = true
-        diagnosisLabel.leftAnchor.constraint(equalTo: diagnosisTitleLabel.rightAnchor, constant: 10).isActive = true
-        
-        //------------------------------------------------------------------
-        
-        nameTitleLabel.topAnchor.constraint(equalTo: diagnosisTitleLabel.bottomAnchor, constant: 5).isActive = true
-        nameTitleLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 10).isActive = true
-        nameTitleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10).isActive = true
+        nameLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
 
-        nameLabel.topAnchor.constraint(equalTo: nameTitleLabel.topAnchor).isActive = true
-        nameLabel.leftAnchor.constraint(equalTo: nameTitleLabel.rightAnchor, constant: 10).isActive = true
-        nameLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10).isActive = true
+        nameLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 10).isActive = true
+        nameLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -10).isActive = true
+
+        //------------------------------------------------------------------
+
+        numberOfCardAndDiagnosisLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 3).isActive = true
+        numberOfCardAndDiagnosisLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 10).isActive = true
+        numberOfCardAndDiagnosisLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -2).isActive = true
+
+
+
+
 
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    
-    
+
+
+
 }

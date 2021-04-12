@@ -100,7 +100,9 @@ class PatternsTableViewController: UITableViewController {
     
     
     @objc func addTapped() {
-        let cardController = CardTableViewController()
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        let cardController = CardPageViewController()
         cardController.viewModel = viewModel.emptyCardViewModel()
         cardController.viewModel?.delegate = viewModel as? CardViewModelDelegate
         navigationController?.pushViewController(cardController, animated: false)
@@ -132,45 +134,6 @@ class PatternsTableViewController: UITableViewController {
         if patternSearchController.isFiltering {
             patternSearchController.searchBar.text?.removeAll()
             patternSearchController.isActive = false
-        }
-    }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if patternSearchController.isFiltering {
-            return viewModel.numberOfFilteredPatterns
-        }
-        return viewModel.numberOfPatterns
-    }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cardController = CardTableViewController()
-        cardController.viewModel = viewModel.cardViewModel(forIndexPath: indexPath, isFiltered: patternSearchController.isFiltering)
-        cardController.viewModel?.delegate = viewModel as? CardViewModelDelegate
-        navigationController?.pushViewController(cardController, animated: false)
-    }
-    
-    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let contextItem = UIContextualAction(style: .destructive, title: "Удалить") {  (contextualAction, view, boolValue) in
-            self.viewModel.deleteRecord(forIndexPath: indexPath, completion: self.completion)
-            tableView.reloadData()
-        }
-        let swipeActions = UISwipeActionsConfiguration(actions: [contextItem])
-        
-        return swipeActions
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! PatternsTableViewCell
-        cell.viewModel = viewModel.cellViewModel(forIndexPath: indexPath, isFiltering: patternSearchController.isFiltering)
-        return cell
-    }
-    
-    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if indexPath.row + 1 == viewModel.numberOfPatterns {
-            if !isReachedTheEndOfTable {
-                isReachedTheEndOfTable = true
-                viewModel.fetchStorredData(completion: completion)
-            }
         }
     }
     
