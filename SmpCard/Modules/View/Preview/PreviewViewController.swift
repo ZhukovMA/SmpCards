@@ -18,6 +18,12 @@ class PreviewViewController: UIViewController {
         return webView
     }()
     
+    var statusBarView: UIView = {
+        let view = UIView()
+        view.backgroundColor = #colorLiteral(red: 0.09766118973, green: 0.09708828479, blue: 0.09810651094, alpha: 1)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
     
     func drawOnPDF(path: String ) {
         let pdf = CGPDFDocument(NSURL(fileURLWithPath: path))
@@ -73,6 +79,13 @@ class PreviewViewController: UIViewController {
         pdfWebView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         pdfWebView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
 
+        view.addSubview(statusBarView)
+        view.bringSubviewToFront(statusBarView)
+        view.sendSubviewToBack(pdfWebView)
+        statusBarView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        statusBarView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        statusBarView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        statusBarView.heightAnchor.constraint(equalToConstant: 30).isActive = true
     }
     
     
