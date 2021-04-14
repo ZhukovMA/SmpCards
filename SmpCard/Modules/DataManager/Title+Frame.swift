@@ -1531,14 +1531,14 @@ extension DataManager {
             case .frame:
                 return nil
             }
-        case .catheterUrinary:
+        case .binty:
             switch requestOfSubattributeData {
             case .title:
                 return "Бинты"
             case .frame:
                 return nil
             }
-        case .bandages:
+        case .glukometrya:
             switch requestOfSubattributeData {
             case .title:
                 return "Глюкометрия"

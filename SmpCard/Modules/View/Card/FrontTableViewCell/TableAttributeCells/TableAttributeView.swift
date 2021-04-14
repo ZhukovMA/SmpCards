@@ -60,12 +60,12 @@ class TableAttributeView: UITableView, UpdateTable, KeyboardDelegate {
         }
     }
     
-    
-    override var contentSize: CGSize {
-      didSet {
-        self.invalidateIntrinsicContentSize()
-      }
-    }
+//    
+//    override var contentSize: CGSize {
+//      didSet {
+//        self.invalidateIntrinsicContentSize()
+//      }
+//    }
 
     override var intrinsicContentSize: CGSize {
       self.layoutIfNeeded()
@@ -147,6 +147,9 @@ extension UIView {
 
 extension TableAttributeView: UITextFieldDelegate {
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        if let tfPrev  = textFieldFirstresponder as? TableTextField, let tfPost = textField as? TableTextField,  tfPrev.positionRow == tfPost.positionRow  {
+            textField.text = textFieldFirstresponder?.text
+        }
         textFieldFirstresponder = textField
        _delegate?.textViewShouldBeginEditing(firstResponderView: textField)
         return true
@@ -175,11 +178,10 @@ extension TableAttributeView: UITextFieldDelegate {
         return true
     }
     
-//    func textFieldDidEndEditing(_ textField: UITextField) {
-//        guard let text = textField.text, !text.isEmpty, let index = .subviews.firstIndex(of: textField) else {
-//            return
-//        }
-////        viewModel?.sendData(data: text, index: index)
-//    }
-//
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        guard let text = textField.text, let tf = textField as? TableTextField else {
+            return
+        }
+        viewModel?.sendData(data: text, row: tf.positionRow, column: tf.positionColumn)
+    }
 }

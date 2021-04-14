@@ -75,11 +75,6 @@ class CardAttributeItem: UIViewController , Output, UpdateTable {
        }
    }
 
-    @objc fileprivate func keyboardWillShow(notification:NSNotification) {
-//        if let keyboardRectValue = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-//             keyboardHeight = keyboardRectValue.height
-//        }
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -152,9 +147,7 @@ extension CardAttributeItem: UITableViewDelegate, UITableViewDataSource {
      func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
-     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        print(scrollView.contentOffset)
-    }
+
 }
 
 

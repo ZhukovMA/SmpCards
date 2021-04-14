@@ -6,7 +6,6 @@
       "size" : "20x20"
     },
     {
-      "filename" : "60.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "20x20"
@@ -37,7 +36,7 @@
       "size" : "60x60"
     },
     {
-      "filename" : "180.png",
+      "filename" : "new180.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "60x60"
@@ -89,7 +88,7 @@
       "size" : "83.5x83.5"
     },
     {
-      "filename" : "1024.png",
+      "filename" : "new1024 копия.png",
       "idiom" : "ios-marketing",
       "scale" : "1x",
       "size" : "1024x1024"

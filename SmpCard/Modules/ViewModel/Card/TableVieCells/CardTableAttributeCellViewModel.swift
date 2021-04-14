@@ -10,9 +10,7 @@ import Foundation
 
 class CardTableCellViewModel: CardTableCellViewModelType {
     
-    var hasAdditionalText: Bool {
-        return attribute.additionalData != nil
-    }
+   
     
    
     var attribute: TableAttribute
@@ -23,27 +21,27 @@ class CardTableCellViewModel: CardTableCellViewModelType {
     }
     
     
-    func getTableData(row: Int, subattribute: SubAttribute) -> String? {
-//        guard let  tableData = completeData.table?[row].data[subattribute] else {return nil}
-//        return tableData
-        return nil
+    var hasAdditionalText: Bool {
+        return attribute.additionalData != nil
     }
     
     var tableViewModel: TableAttributeViewModelType {
         return TableAttributeViewModel(table: attribute.table,  completeData: completeData, tableAttribute: attribute.attribute)
     }
-    var numberOfRow: Int {
-//        return completeData.table?.count ?? 0
-        return 0
+    
+    func sendAdditionalData(data: String) {
+        attribute.additionalData?.text = data.isEmpty ? nil : data
+        completeData.completeTextData[attribute.additionalData!.subattribut] =  data.isEmpty ? nil : data
+    }
+
+    var additionalData: String? {
+        return attribute.additionalData?.text
     }
     
     func getTitle() -> String {
         return attribute.title
     }
     
-    func sendData(row: Int, column: SubAttribute, data: String) {
-
-    }
     
     init(attribute : TableAttribute, completeData : CompleteData) {
         self.attribute = attribute

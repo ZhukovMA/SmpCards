@@ -8,14 +8,10 @@
 
 import UIKit
 
-
-
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
    
-   
-        
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         if let windowScene = scene as? UIWindowScene {
             UINavigationBar.appearance().titleTextAttributes = [.font: UIFont(name: "Verdana", size: 18)!, .foregroundColor: UIColor.white]
@@ -28,12 +24,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             case .signed:
                 let mainController = MainTableViewContoller()
                 mainController.viewModel = MainViewModel()
-                let navController = UINavigationController(rootViewController: mainController)
-                if let statusBarFrame  = windowScene.statusBarManager?.statusBarFrame {
-                    let statusBarView = UIView(frame: statusBarFrame)
-                    statusBarView.backgroundColor = #colorLiteral(red: 0.09766118973, green: 0.09708828479, blue: 0.09810651094, alpha: 1)
-                    navController.view.addSubview(statusBarView)
-                }
+                let navController = CustomNavigationController(rootViewController: mainController)
                 window.rootViewController = navController
             case .signedOut:
                 let authController = AuthViewController()
@@ -76,13 +67,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
 }
 
-extension UINavigationController {
-
-    func setStatusBar(backgroundColor: UIColor) {
-        let statusBarFrame: CGRect = UIApplication.shared.statusBarFrame
-        let statusBarView = UIView(frame: statusBarFrame)
-        statusBarView.backgroundColor = backgroundColor
-        view.addSubview(statusBarView)
+extension UIApplication {
+    var statusBarView: UIView? {
+        if responds(to: Selector(("statusBar"))) {
+            return value(forKey: "statusBar") as? UIView
+        }
+        return nil
     }
-
 }

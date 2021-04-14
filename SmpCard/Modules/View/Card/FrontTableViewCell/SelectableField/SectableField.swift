@@ -8,10 +8,13 @@
 
 import UIKit
 
-
+protocol SectableFieldDelegate: class {
+    func didSelectRow(indexPathRow: Int)
+}
 
 class SectableField: UICollectionView {
-    var viewModel: SelectableFieldViewModelType? 
+    var viewModel: SelectableFieldViewModelType?
+    weak var sectableFieldDelegate: SectableFieldDelegate?
     
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         let layout =  CollectionViewFlowCenterLayout(withSpace: 10)
@@ -48,7 +51,14 @@ extension SectableField: UICollectionViewDelegate, UICollectionViewDataSource {
         return cell
     }
     
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        guard let cell = collectionView.cellForItem(at: indexPath) as? SectableFieldCell else {
+//            return
+//        }
+        viewModel?.sendData(indexPathRow: indexPath.row)
+        sectableFieldDelegate?.didSelectRow(indexPathRow: indexPath.row)
+        reloadData()
+    }
 
 }
 

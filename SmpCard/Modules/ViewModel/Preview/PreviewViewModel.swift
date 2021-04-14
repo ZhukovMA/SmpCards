@@ -52,6 +52,7 @@ class PreviewViewModel: PreviewViewModelType {
     }
     
     var completeData: CompleteData!
+    var originalCompleteData: CompleteData?
     var tempPDFUrl: URL!
     
     func getNextDate() ->  NextData? {
@@ -79,6 +80,14 @@ class PreviewViewModel: PreviewViewModelType {
                 }
                 completeData.completeTextData.removeValue(forKey: data.key)
             }
+        }else if originalCompleteData != nil  {
+            nextData = NextData()
+            let data = DataManager.shared.getTextOfSelectableAttribute(completeData: originalCompleteData!, selectableAttribute: .consumption)
+            if let frames = getFrames(.expenditure) {
+               let text =  getTextOfCompleteTextData(frame: frames.first!, data: data)
+                nextData.dataWithFrame.append((frames.first!, text))
+            }
+            originalCompleteData = nil
         }
         return nextData
     }
@@ -102,11 +111,11 @@ class PreviewViewModel: PreviewViewModelType {
     
     private func getFullTextOfCompleteTextData(frame:FrameOfSubAttribute, subAttribute: SubAttribute, text: String) -> String {
         var _text = String()
-//        if subAttribute == .assistanceProvided {
-//            _text += DataManager.shared.getTextOfSelectableAttribute(completeData: completeData, selectableAttribute: .assistanceProvided, forPreview: true)
-//        } else {
+        if subAttribute == .assistanceProvided {
+            _text += DataManager.shared.getTextOfSelectableAttribute(completeData: completeData, selectableAttribute: .indicator)
+        } else {
             _text = getTextOfCompleteTextData(frame: frame, data: text)
-//        }
+        }
         addTheUnitsOfMeasurement(text: &_text, subAttr: subAttribute)
         return _text
     }
@@ -162,6 +171,7 @@ class PreviewViewModel: PreviewViewModelType {
     }
     
     init(completeData: CompleteData) {
+        self.originalCompleteData = completeData
         self.completeData = CompleteData()
         self.completeData.completeSelectableData = completeData.completeSelectableData
         self.completeData.completeTextData = completeData.completeTextData

@@ -23,6 +23,7 @@ class SectableFieldCell: UICollectionViewCell  {
         lbel.font = UIFont(name: "Verdana", size: 18)
         lbel.textAlignment = .center
         lbel.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        lbel.translatesAutoresizingMaskIntoConstraints = false
         return lbel
     }()
     
@@ -33,14 +34,16 @@ class SectableFieldCell: UICollectionViewCell  {
         contentView.layer.cornerRadius = 15.0
         label.frame = contentView.frame
 //        label.center = contentView.center
-//        label.leftAnchor.constraint(equalTo: contentView.leftAnchor).isActive = true
-//        label.rightAnchor.constraint(equalTo: contentView.rightAnchor).isActive = true
-//        label.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
-//        label.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+        label.leftAnchor.constraint(equalTo: contentView.leftAnchor).isActive = true
+        label.rightAnchor.constraint(equalTo: contentView.rightAnchor).isActive = true
+        label.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+        label.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
 
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    
 }

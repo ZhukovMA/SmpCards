@@ -10,7 +10,7 @@ import UIKit
 
 extension PatternsTableViewController {
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         let cardController = CardPageViewController()
@@ -19,7 +19,7 @@ extension PatternsTableViewController {
         navigationController?.pushViewController(cardController, animated: false)
     }
     
-    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let contextDelete = UIContextualAction(style: .destructive, title: "Удалить") {  (contextualAction, view, boolValue) in
             self.viewModel.deleteRecord(forIndexPath: indexPath, completion: self.completion)
             tableView.reloadData()
@@ -38,7 +38,7 @@ extension PatternsTableViewController {
         return swipeActions
     }
     
-    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if indexPath.row + 1 == viewModel.numberOfPatterns {
             if !isReachedTheEndOfTable {
                 isReachedTheEndOfTable = true

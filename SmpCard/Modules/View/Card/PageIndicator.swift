@@ -43,7 +43,7 @@ class PageIndicator: UICollectionView {
         super.init(frame: frame, collectionViewLayout: layout)
         delegate = self
         dataSource = self
-        
+        contentInset = UIEdgeInsets(top: 0, left:  (UIScreen.main.bounds.width - (titleOfHeader[0].getWidth(font: fontforItem) + 20))/2, bottom: 0, right: (UIScreen.main.bounds.width - (titleOfHeader[9].getWidth(font: fontforItem) + 20))/2)
         contentSize = CGSize(width: frame.width, height: frame.height)
 
         register(PageIndicatorBarCell.self, forCellWithReuseIdentifier: "cell")
@@ -72,14 +72,7 @@ extension PageIndicator: UICollectionViewDelegate, UICollectionViewDataSource {
     
     
     
-     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if indexPath.row == 0 && collectionView.contentOffset.x == 0.0 {
-            collectionView.contentOffset.x = -(UIScreen.main.bounds.width - (titleOfHeader[0].getWidth(font: fontforItem) + 20))/2
-            let _cell = cell as! PageIndicatorBarCell
-            _cell.label.textColor = _cell.label.textColor.withAlphaComponent(1 )
-
-        }
-    }
+    
 
 }
 

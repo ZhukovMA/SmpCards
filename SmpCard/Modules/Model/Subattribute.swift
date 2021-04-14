@@ -304,8 +304,8 @@ enum SubAttribute: String, Codable {
     case syringe
     case siz
     case catheterPerefirichesky
-    case catheterUrinary
-    case bandages
+    case binty
+    case glukometrya
     case infusionSystem
     case consumptionText
 }

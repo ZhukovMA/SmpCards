@@ -38,11 +38,13 @@ enum SelectableAttributeEnum {
     case dyspepsia
     case chair
     case diuresis
+    
     case perfomance
-//    case assistanceProvided
-    case additionalAction
-    case consumption
     case indicator
+
+    case consumption
+    case additionalAction
+
 }
 
 
@@ -50,51 +52,47 @@ enum SelectableAttributeEnum {
 class DataManager {
     static let shared = DataManager()
     
-    func getTextOfSelectableAttribute(completeData: CompleteData, selectableAttribute: SelectableAttributeEnum, forPreview: Bool) -> String {
+    func getTextOfSelectableAttribute(completeData: CompleteData, selectableAttribute: SelectableAttributeEnum) -> String {
         var result = String()
-//        let sections = getSubattributesOfSection(selectableAttribute: selectableAttribute)
-//        sections?.selectableValues.forEach { (subAttribute) in
-//            if  completeData.completeSelectableData.contains(subAttribute),
-//                let title = DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: subAttribute, requestOfSubattributeData: .title) as? String {
-//                if result.isEmpty {
-//                    result += title
-//                } else {
-//                    result += ", \(title)"
-//                }
-//            }
-//        }
-//        sections?.textValues.forEach({ (subAttribute) in
-//            if  let text = completeData.completeTextData[subAttribute] {
-//                if let title = DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: subAttribute, requestOfSubattributeData: .title) as? String {
-//                    if result.isEmpty {
-//                        result += title + ": " + text
-//                    } else  {
-//                        result += ", " + title + ": "  + text
-//                    }
-//                } else {
-//                    if result.isEmpty {
-//                        result += text
-//                    } else  {
-//                        result += ", \(text)"
-//                    }
-//                }
-//            }
-//            if subAttribute == .assistanceProvided {
-//                if let indicator = completeData.indicator, !completeData.indicatorIsEmpty {
-//                    result += "\n"
-//                    result += "Время\t\tАД\t\tЧСС\tЧДД\tSpO₂\tT°C\n"
-//                    indicator.forEach { indicatorItem in
-//                        if !indicatorItem.data.isEmpty {
-//                            getIndicatorsText(indicatorItem: indicatorItem, result: &result, forPreview: forPreview)
-//                        }
-//                    }
-//                }
-//            }
-//        })
+            
+        if selectableAttribute == .consumption {
+            let consumption: [SubAttribute] = [.masks, .gloves, .napkins, .syringe, .siz, .catheterPerefirichesky, .binty, .glukometrya, .infusionSystem, .consumptionText]
+            consumption.forEach{  (subAttribute) in
+                if  let text = completeData.completeTextData[subAttribute] {
+                    if let title = DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: subAttribute, requestOfSubattributeData: .title) as? String {
+                        if result.isEmpty {
+                            result += title + ": " + text
+                        } else  {
+                            result += ", " + title + ": "  + text
+                        }
+                    } else {
+                        if result.isEmpty {
+                            result += text
+                        } else  {
+                            result += ", \(text)"
+                        }
+                    }
+                }
+            }
+        }
+        
+        if selectableAttribute == .indicator {
+            result += completeData.completeTextData[.assistanceProvided] ?? ""
+            if let indicator = completeData.indicator {
+                result += "\n"
+                result += "Время\t\tАД\t\tЧСС\tЧДД\tSpO₂\tT°C\n"
+                indicator.forEach { indicatorItem in
+                    if !indicatorItem.data.isEmpty {
+                        getIndicatorsText(indicatorItem: indicatorItem, result: &result)
+                    }
+                }
+            }
+        }
+        
         return result
     }
     
-    private func getIndicatorsText(indicatorItem: IndicatorItem, result: inout String, forPreview: Bool) {
+    private func getIndicatorsText(indicatorItem: IndicatorItem, result: inout String) {
         var time: String?
         var ad:String?
         var chdd:String?
@@ -105,19 +103,19 @@ class DataManager {
             time = _time
         }
         if let _ad = indicatorItem.data[.aDtimeIndicator] {
-            ad = _ad + (forPreview ? "мм. рт. ст." : "")
+            ad = _ad + "мм. рт. ст."
         }
         if let _chss = indicatorItem.data[.chssIndicator] {
-            chss = _chss + (forPreview ? "'" : "")
+            chss = _chss + "'"
         }
         if let _chdd = indicatorItem.data[.chddIndicator] {
-            chdd = _chdd + (forPreview ? "'" : "")
+            chdd = _chdd + "'"
         }
         if let _spo = indicatorItem.data[.spoIndicator] {
-            spo = _spo + (forPreview ? "%" : "")
+            spo = _spo + "%"
         }
         if let _temp = indicatorItem.data[.tempIndicator] {
-            temp = _temp + (forPreview ?  "°C" : "")
+            temp = _temp +  "°C"
         }
         result += "\(time ?? "\t")\t   \(ad ?? "\t")\t \(chss ?? "\t")   \t \(chdd ?? "\t")    \t \(spo ?? "\t")   \t\(temp ?? "    ")\n"
     }
@@ -148,7 +146,7 @@ class DataManager {
             tableAttribute.table.columnsTitle = columnsTitles
             tableAttribute.additionalData = makeTextRow(subAttribute: .consumptionText, completeData: completeData)
             tableAttribute.table.data = Array(repeating: Array(repeating: TextRowOfSubattribute(), count: 1), count: rowTitle.count)
-            let rows: [SubAttribute] = [.masks, .gloves, .syringe, .siz, .catheterPerefirichesky, .catheterUrinary, .bandages, .infusionSystem,]
+            let rows: [SubAttribute] = [.masks, .gloves, .napkins, .syringe, .siz, .catheterPerefirichesky, .binty, .glukometrya, .infusionSystem,]
             rows.forEach {
                 table.append([$0])
             }
@@ -157,14 +155,11 @@ class DataManager {
             let columnsTitles = ["Время", "Ад", "ЧСС", "ЧДД", "SpO", "T"]
             tableAttribute.table.columnsTitle = columnsTitles
             let indicatorColumns: [SubAttribute] = [.timeIndicator, .aDtimeIndicator, .chssIndicator, .chddIndicator, .spoIndicator, .tempIndicator,]
-            let numberOfRow =  completeData.indicator?.count ?? 1
+            let numberOfRow =  completeData.indicator == nil ? 1 : completeData.indicator!.count
             tableAttribute.table.data = Array(repeating: Array(repeating: TextRowOfSubattribute(), count: indicatorColumns.count), count: numberOfRow)
-            guard let indicator = completeData.indicator  else { return }
-            for indicatorIndex in 0..<indicator.count {
-                if !indicator[indicatorIndex].data.isEmpty {
-                    for colIndex in 0..<indicatorColumns.count {
-                        tableAttribute.table.data[indicatorIndex][colIndex] = makeTextRow(subAttribute: indicatorColumns[colIndex], completeData: completeData)
-                    }
+            for indicatorIndex in 0..<numberOfRow {
+                for colIndex in 0..<indicatorColumns.count {
+                    tableAttribute.table.data[indicatorIndex][colIndex] = TextRowOfSubattribute(subattribut: indicatorColumns[colIndex], text: completeData.indicator?[indicatorIndex].data[indicatorColumns[colIndex]] )
                 }
             }
             return
@@ -176,6 +171,7 @@ class DataManager {
                 tableAttribute.table.data[rowIndex][columnsIndex] = makeTextRow(subAttribute: table[rowIndex][columnsIndex], completeData: completeData)
             }
         }
+        
     }
 
 
@@ -351,19 +347,6 @@ class DataManager {
             selectRows.data.append(makeSelectableRow(subAttribute: .diuresisIshematuria, completeData: completeData))
             selectRows.data.append(makeSelectableRow(subAttribute: .diuresisIsAnuria, completeData: completeData))
             
-
-//        case .assistanceProvided:
-//           textRow = makeTextRow(subAttribute: .assistanceProvided, completeData: completeData, limit: nil))
-//            completeData.indicator?.forEach { item in
-//                var newSection = SectionSubattributes()
-//                newSection.rows.append(TextRowOfSubattribute( subattribut: .timeIndicator,       text: item.data[.timeIndicator],       limit: nil))
-//                newSection.rows.append(TextRowOfSubattribute( subattribut: .aDtimeIndicator,       text: item.data[.aDtimeIndicator],       limit: nil))
-//                newSection.rows.append(TextRowOfSubattribute( subattribut: .chssIndicator,       text: item.data[.chssIndicator],       limit: nil))
-//                newSection.rows.append(TextRowOfSubattribute(subattribut: .chddIndicator,       text: item.data[.chddIndicator],       limit: nil))
-//                newSection.rows.append(TextRowOfSubattribute( subattribut: .spoIndicator,       text: item.data[.spoIndicator],       limit: nil))
-//                newSection.rows.append(TextRowOfSubattribute( subattribut: .tempIndicator,       text: item.data[.tempIndicator],       limit: nil))
-//                sections.append(newSection)
-//            }
         case .additionalAction:
             selectRows.data.append(makeSelectableRow(subAttribute: .resuscitation, completeData: completeData))
             selectRows.data.append(makeSelectableRow(subAttribute: .ivl_vvl, completeData: completeData))
@@ -393,12 +376,13 @@ class DataManager {
         default:
             print("unnecessary case")
         }
+       
         return  (selectRows, textRow)
     }
     
     private func makeTextRow(subAttribute: SubAttribute, completeData: CompleteData, limit: Int? = nil) -> TextRowOfSubattribute {
         return TextRowOfSubattribute(subattribut: subAttribute,
-                                     text: completeData.completeTextData[.infusionSystem])
+                                     text: completeData.completeTextData[subAttribute])
     }
     
     private func makeSelectableRow(subAttribute: SubAttribute, completeData: CompleteData) -> SelectRowOfSubattribute {

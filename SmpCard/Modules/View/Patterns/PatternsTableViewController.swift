@@ -8,12 +8,16 @@
 
 import UIKit
 
-class PatternsTableViewController: UITableViewController {
+class PatternsTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     let cellID = "Cell"
     var isReachedTheEndOfTable = true
     var viewModel: PatternsViewModelType!
     private var isFirstViewWillAppear = true
-    
+    var tableView: UITableView = {
+        let tv = UITableView(frame: .zero, style: .plain)
+        tv.translatesAutoresizingMaskIntoConstraints = false
+        return tv
+    }()
     lazy var completion: (_ response: StorrageResponse) -> Void = { [unowned self] (response) in
         DispatchQueue.main.async {
             switch response {
@@ -59,6 +63,13 @@ class PatternsTableViewController: UITableViewController {
         return sc
     }()
     
+    var statusBarView: UIView = {
+        let view = UIView()
+        view.backgroundColor = #colorLiteral(red: 0.09766118973, green: 0.09708828479, blue: 0.09810651094, alpha: 1)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     lazy var refreshControll: UIRefreshControl = {
         let refreshControll = UIRefreshControl()
         refreshControll.addTarget(self, action: #selector(refresh), for: .valueChanged)
@@ -70,17 +81,22 @@ class PatternsTableViewController: UITableViewController {
     }
     
     private func initTableView() {
-        tableView = UITableView(frame: view.frame, style: .insetGrouped)
-        tableView.separatorColor = #colorLiteral(red: 0.365568012, green: 0.3719425201, blue: 0.3995776176, alpha: 1)
+        tableView.separatorColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 0.2729022298)
         tableView.layoutMargins = UIEdgeInsets.zero
         tableView.separatorInset = UIEdgeInsets.zero
-        tableView.backgroundColor = #colorLiteral(red: 0.1298618913, green: 0.131595701, blue: 0.1584605277, alpha: 1)
+        tableView.backgroundColor = #colorLiteral(red: 0.06691879034, green: 0.06652892381, blue: 0.06722356379, alpha: 1)
         tableView.showsVerticalScrollIndicator = false
         tableView.delegate = self
         tableView.dataSource = self
         tableView.refreshControl = refreshControll
         
         tableView.register(PatternsTableViewCell.self, forCellReuseIdentifier: cellID)
+        
+        view.addSubview(tableView)
+        tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        tableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
     }
     
     override func viewDidLoad() {
@@ -91,6 +107,13 @@ class PatternsTableViewController: UITableViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
         let newBackButton = UIBarButtonItem(title: "Назад", style: .done, target: self, action: #selector(backTapped))
         self.navigationItem.leftBarButtonItem = newBackButton
+        view.addSubview(statusBarView)
+        view.bringSubviewToFront(statusBarView)
+        view.sendSubviewToBack(tableView)
+        statusBarView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        statusBarView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        statusBarView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        statusBarView.heightAnchor.constraint(equalToConstant: 30).isActive = true
     }
     
     

@@ -13,5 +13,5 @@ protocol TableAttributeViewModelType {
     func  contentCellViewModel(row: Int) -> TableAttributeRowContentViewModelType?
     var  headerCellViewModel: TableAttributeRowHeaderViewModelType? {get}
     func addRow()
-
+    func sendData(data: String, row: Int, column: Int)
 }

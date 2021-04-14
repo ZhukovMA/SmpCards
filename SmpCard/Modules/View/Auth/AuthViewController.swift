@@ -102,11 +102,9 @@ class AuthViewController: UIViewController {
     }()
     
     @objc func forgotPassword() {
-        print(1)
     }
     
     @objc func register() {
-        print(1)
     }
     
     let singInActivityView: ActivityView = {

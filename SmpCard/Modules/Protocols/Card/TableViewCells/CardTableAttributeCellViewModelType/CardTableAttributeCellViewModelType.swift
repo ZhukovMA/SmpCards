@@ -10,8 +10,9 @@ import Foundation
 
 protocol CardTableCellViewModelType: CardTableViewCellViewModelType {
     func getTitle() -> String
-    func sendData(row: Int, column: SubAttribute, data: String) 
     var tableViewModel: TableAttributeViewModelType {get}
     var tableType: TableType {get}
     var hasAdditionalText: Bool {get}
+    var additionalData: String? {get}
+    func sendAdditionalData(data: String)
 }

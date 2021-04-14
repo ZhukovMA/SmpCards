@@ -58,6 +58,7 @@ class PreviewViewController: UIViewController {
                 data.1.draw(in: CGRect(x: data.0.x, y: data.0.y, width: data.0.weight, height: data.0.height), withAttributes: textFontAttributes)
             }
         }
+        
         UIGraphicsEndPDFContext()
     }
 

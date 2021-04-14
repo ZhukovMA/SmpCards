@@ -10,8 +10,8 @@ import UIKit
 
 class CardTableAttributeTableViewCell: UITableViewCell {
     
-//    var subViews = [CardTableAttributeRow]()
     let optimalWidth = UIScreen.main.bounds.width < 400 ? UIScreen.main.bounds.width  : 400
+    lazy var optimalX = (UIScreen.main.bounds.width - optimalWidth)/2
 
     weak var delegate: Output?
     var delegate1: UpdateTable!
@@ -106,10 +106,11 @@ class CardTableAttributeTableViewCell: UITableViewCell {
             complaintsTextView!.delegate = self
             complaintsTextView!.backgroundColor = #colorLiteral(red: 0.09766118973, green: 0.09708828479, blue: 0.09810651094, alpha: 1)
             complaintsTextView!.font = UIFont(name: "Verdana", size: 16)
-            
+            complaintsTextView?.text = viewModel!.additionalData
+
             underTextViewLabel  = UILabel()
             underTextViewLabel!.textColor = #colorLiteral(red: 0.3422456086, green: 0.3402163684, blue: 0.3438087702, alpha: 1)
-            underTextViewLabel!.text = "Введите данные"
+            underTextViewLabel!.text = complaintsTextView?.text == nil ? "Введите данные" : nil
             underTextViewLabel!.font = UIFont(name: "Verdana", size: 16)
             underTextViewLabel!.numberOfLines = 0
 
@@ -118,7 +119,19 @@ class CardTableAttributeTableViewCell: UITableViewCell {
             contentView.addSubview(underTextViewLabel!)
             
             addDoneButtonOnKeyboard(textView: complaintsTextView!)
+            
+            detailLabel?.frame = CGRect(x: 10,
+                                        y: tableContentView.frame.maxY + 30,
+                                        width: detailLabel!.text!.getWidth(font: detailLabel!.font),
+                                        height: detailLabel!.font.lineHeight)
+            complaintsTextView?.frame = CGRect(x: detailLabel?.frame.maxX ?? 0.0 + 10.0,
+                                               y: tableContentView.frame.maxY + 30,
+                                               width: contentView.frame.width - (detailLabel?.frame.maxX ?? 0.0 + 10.0),
+                                               height: complaintsTextView?.contentSize.height ?? 22.0)
+            underTextViewLabel?.frame = complaintsTextView?.frame ?? .zero
         }
+        
+    
     }
     
     var temprow: UIView!
@@ -136,10 +149,12 @@ class CardTableAttributeTableViewCell: UITableViewCell {
         self.contentView.addSubview(headerView)
         self.contentView.addSubview(tableContentView)
 
+        
+        
         headerView.frame = CGRect(x: 0, y: 0, width: width, height: 5)
         attributeLabel.frame = CGRect(x: 7, y: headerView.frame.maxY, width: width, height: attributeLabel.font.lineHeight + 10)
         undeline.frame = CGRect(x: 7, y: attributeLabel.frame.maxY, width: width, height: 0.5)
-        tableContentView.frame = CGRect(x: 0, y: undeline.frame.maxY, width: optimalWidth, height: 1)
+        tableContentView.frame = CGRect(x: optimalX, y: undeline.frame.maxY, width: optimalWidth, height: 1)
 
         selectionStyle = .none
             
@@ -168,19 +183,34 @@ class CardTableAttributeTableViewCell: UITableViewCell {
     
     
     override func systemLayoutSizeFitting(_ targetSize: CGSize, withHorizontalFittingPriority horizontalFittingPriority: UILayoutPriority, verticalFittingPriority: UILayoutPriority) -> CGSize {
+
+        tableContentView.frame = CGRect(x: optimalX, y: undeline.frame.maxY + 10, width: optimalWidth, height: tableContentView.table.contentSize.height)
         
-        tableContentView.frame = CGRect(x: 0, y: undeline.frame.maxY + 10, width: optimalWidth, height: tableContentView.table.contentSize.height)
         button?.frame.origin.y = tableContentView.frame.maxY + 20
         button?.center.x = contentView.center.x
+
         
-        detailLabel?.frame = CGRect(x: 10, y: tableContentView.frame.maxY + 30, width: detailLabel!.text!.getWidth(font: detailLabel!.font), height: detailLabel!.font.lineHeight)
-        complaintsTextView?.frame = CGRect(x: detailLabel?.frame.maxX ?? 0.0 + 10.0, y: tableContentView.frame.maxY + 30, width: contentView.frame.width - (detailLabel?.frame.maxX ?? 0.0 + 10.0), height: detailLabel!.font.lineHeight)
+        detailLabel?.frame = CGRect(x: 10,
+                                    y: tableContentView.frame.maxY + 30,
+                                    width: detailLabel!.text!.getWidth(font: detailLabel!.font),
+                                    height: detailLabel!.font.lineHeight)
+        complaintsTextView?.frame = CGRect(x: detailLabel?.frame.maxX ?? 0.0 + 10.0,
+                                           y: tableContentView.frame.maxY + 30,
+                                           width: contentView.frame.width - (detailLabel?.frame.maxX ?? 0.0 + 10.0),
+                                           height: complaintsTextView?.contentSize.height ?? 22.0)
         underTextViewLabel?.frame = complaintsTextView?.frame ?? .zero
         tableContentView.configure()
  
-        print(viewModel!.getTitle())
-        print(" \(undelineHeight) +  \(attributeLabel.frame.height)   + \(headerView.frame.height) + 10 + \(tableContentView.table.contentSize.height) +  \((viewModel!.hasAdditionalText ? 30.0 + 10 : 0.0)) + \((viewModel!.tableType == .dynamicTable ? 50.0 + 10 : 0.0)) + \(10)")
-        return  CGSize(width: contentView.frame.width, height: undelineHeight +  attributeLabel.frame.height   + headerView.frame.height + 10 + tableContentView.table.contentSize.height +  (viewModel!.hasAdditionalText ? detailLabel!.frame.height + 30 : 0.0) + (viewModel!.tableType == .dynamicTable ? 60.0 + 20 + 10 : 0.0) + 10)
+   
+        return  CGSize(width: contentView.frame.width,
+                       height: undelineHeight +
+                        attributeLabel.frame.height   +
+                        headerView.frame.height +
+                        10 +
+                        tableContentView.table.contentSize.height +
+                        (viewModel!.hasAdditionalText ? complaintsTextView!.contentSize.height + 30 : 0.0) +
+                        (viewModel!.tableType == .dynamicTable ? 60.0 + 20 + 10 : 0.0) +
+                        10)
     }
     
 
@@ -195,7 +225,7 @@ extension CardTableAttributeTableViewCell: UITextViewDelegate {
     
     func textViewDidChange(_ textView: UITextView) {
         delegate?.didChangeText(str: textView.text, indexPathRow: indexPathRow)
-        //        viewModel?.sendData(data: &textView.text)
+        viewModel?.sendAdditionalData(data: textView.text ?? "")
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {

@@ -9,10 +9,15 @@
 import UIKit
 
 
-class MainTableViewContoller: UITableViewController {
+class MainTableViewContoller: UIViewController, UITableViewDelegate, UITableViewDataSource {
     let cellID = "Cell"
     var keyboardHeight: CGFloat!
-
+    
+    var tableView: UITableView = {
+        let tv = UITableView(frame: .zero, style: .plain)
+        tv.translatesAutoresizingMaskIntoConstraints = false
+        return tv
+    }()
     var isReachedTheEndOfTable = true
     var viewModel: MainViewModelType!
     private var patternController: PatternsTableViewController!
@@ -70,12 +75,19 @@ class MainTableViewContoller: UITableViewController {
         return refreshControl
     }()
     
+    var statusBarView: UIView = {
+        let view = UIView()
+        view.backgroundColor = #colorLiteral(red: 0.09766118973, green: 0.09708828479, blue: 0.09810651094, alpha: 1)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     @objc func refresh() {
         viewModel.fetchUpdatedData(completion: completion)
     }
     
     private func initTableView() {
-        tableView = UITableView(frame: view.frame, style: .plain)
+        
         tableView.separatorColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 0.2729022298)
         tableView.separatorStyle = .singleLine
         tableView.backgroundColor = #colorLiteral(red: 0.09766118973, green: 0.09708828479, blue: 0.09810651094, alpha: 1)
@@ -84,10 +96,19 @@ class MainTableViewContoller: UITableViewController {
         tableView.dataSource = self
         tableView.refreshControl = refreshControll
         tableView.register(MainTableViewCell.self, forCellReuseIdentifier: cellID)
+        
+        view.addSubview(tableView)
+        tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        tableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = #colorLiteral(red: 0.09766118973, green: 0.09708828479, blue: 0.09810651094, alpha: 1)
+        
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(keyboardWillShow),
@@ -98,6 +119,13 @@ class MainTableViewContoller: UITableViewController {
         initTableView()
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
         viewModel.fetchStorredData(completion: completion)
+        view.addSubview(statusBarView)
+        view.bringSubviewToFront(statusBarView)
+        view.sendSubviewToBack(tableView)
+        statusBarView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        statusBarView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        statusBarView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        statusBarView.heightAnchor.constraint(equalToConstant: 30).isActive = true
     }
     
     @objc func addTapped() {
@@ -166,14 +194,14 @@ class MainTableViewContoller: UITableViewController {
         }
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if historySearchController.isFiltering {
             return viewModel.numberOfFilteredProfiles
         }
         return viewModel.numberOfProfiles
     }
    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         let cardController = CardPageViewController()
@@ -183,7 +211,7 @@ class MainTableViewContoller: UITableViewController {
         
     }
     
-    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let contextItem = UIContextualAction(style: .destructive, title: "Удалить") {  (contextualAction, view, boolValue) in
             self.viewModel.deleteRecord(forIndexPath: indexPath, completion: self.completion)
             tableView.reloadData()
@@ -193,18 +221,20 @@ class MainTableViewContoller: UITableViewController {
         return swipeActions
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! MainTableViewCell
         cell.viewModel = viewModel.cellViewModel(forIndexPath: indexPath, isFiltering: historySearchController.isFiltering)
         return cell
     }
 
-    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if !isReachedTheEndOfTable, indexPath.row + 1 == viewModel.numberOfProfiles {
             isReachedTheEndOfTable = true
             viewModel.fetchStorredData(completion: completion)
         }
     }
+    
+
 }
 
 extension MainTableViewContoller: UISearchResultsUpdating {

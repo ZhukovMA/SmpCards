@@ -10,6 +10,7 @@ import UIKit
 
 class TableTextField: UITextField {
     var positionRow: Int!
+    var positionColumn: Int!
 }
 
 
@@ -27,7 +28,7 @@ class TableAttributeRowContent: UITableViewCell {
     
     private func makeRow()  {
         var textFieldWidth: CGFloat!
-        let optimalWidth =  UIScreen.main.bounds.width < 400 ?  UIScreen.main.bounds.width : 500
+        let optimalWidth =  UIScreen.main.bounds.width < 400 ?  UIScreen.main.bounds.width : 400
         if viewModel!.hasRowsTitles {
             textFieldWidth = (optimalWidth - 150)/CGFloat(viewModel!.numberOfColumn)
         } else {
@@ -56,6 +57,8 @@ class TableAttributeRowContent: UITableViewCell {
             let textField = TableTextField()
             textField.text =  viewModel!.getData(column: columnIndex)
             textField.positionRow = viewModel!.numberOfRow
+            textField.positionColumn = columnIndex
+
             textField.keyboardType = .numbersAndPunctuation
             textField.delegate = superView
             textField.font = UIFont(name: "AppleSDGothicNeo-Regular", size: textFieldWidth > 70 ? 18: 15)

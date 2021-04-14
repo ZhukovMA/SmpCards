@@ -11,4 +11,5 @@ import Foundation
 protocol SelectableFieldViewModelType {
     func cellViewModel(forIndexPath indexPath: IndexPath) -> SelectableFieldCellViewModelType?
     var numberOfItemInSection: Int {get}
+    func sendData(indexPathRow: Int)
 }

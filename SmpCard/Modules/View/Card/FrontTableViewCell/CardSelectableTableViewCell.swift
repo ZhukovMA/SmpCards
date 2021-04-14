@@ -9,17 +9,26 @@
 
 import UIKit
 
-class CardSelectableTableViewCell: UITableViewCell {
+class CardSelectableTableViewCell: UITableViewCell, SectableFieldDelegate {
     var indexPath: IndexPath!
     var delegate: Output?
     var indexPathRow: Int!
+    
+    func didSelectRow(indexPathRow: Int) {
+        viewModel?.sendSelectableData(indexPathRow: indexPathRow)
+    }
     
     var viewModel: CardSelectableCellViewModelType? {
         didSet {
             guard let vm = viewModel else { return }
             self.collectionView.viewModel = vm.selectableField
             self.attributeLabel.text = vm.getTitle()
-           
+            if let data = vm.getAttributeData() {
+                self.complaintsTextView.text = data
+            } else {
+                underTextViewLabel.text =  "Введите данные"
+            }
+
         }
     }
     private let attributeLabelHeight: CGFloat = 30.0
@@ -48,6 +57,7 @@ class CardSelectableTableViewCell: UITableViewCell {
     
     lazy var collectionView: SectableField = {
         let cv = SectableField()
+        cv.sectableFieldDelegate = self
         cv.backgroundColor = #colorLiteral(red: 0.09766118973, green: 0.09708828479, blue: 0.09810651094, alpha: 1)
         return cv
     }()
@@ -62,7 +72,6 @@ class CardSelectableTableViewCell: UITableViewCell {
     let underTextViewLabel: UILabel = {
        let label = UILabel()
        label.textColor = #colorLiteral(red: 0.3422456086, green: 0.3402163684, blue: 0.3438087702, alpha: 1)
-       label.text = "Введите данные"
        label.font = UIFont(name: "Verdana", size: 16)
        label.numberOfLines = 0
        return label
@@ -129,7 +138,8 @@ class CardSelectableTableViewCell: UITableViewCell {
         addDoneButtonOnKeyboard(complaintsTextView)
         
         complaintsTextView.isScrollEnabled = false
-        complaintsTextView.frame = CGRect(x: detailLabel.frame.maxX + 10, y: collectionView.frame.maxY + sdditionalTextFieldInset, width: 300, height: detailLabel.font.lineHeight)
+        complaintsTextView.frame = CGRect(x: detailLabel.frame.maxX + 10, y: collectionView.frame.maxY + sdditionalTextFieldInset, width: ((contentView.frame.width - 10) - (detailLabel.frame.maxX + 10)) , height: complaintsTextView.contentSize.height)
+        
         underTextViewLabel.frame = complaintsTextView.frame
         limitLabel.frame = CGRect(x: complaintsTextView.frame.maxX - 20.0, y: complaintsTextView.frame.origin.y - 30, width: 20, height: 20)
     }
@@ -140,14 +150,18 @@ class CardSelectableTableViewCell: UITableViewCell {
 
         self.contentView.frame = self.bounds
         self.contentView.layoutIfNeeded()
-        var heightOfDetailLabel: CGFloat = 0.0
+        var heightOfTextView: CGFloat = 0.0
         collectionView.frame = CGRect(x: 7, y: undeline.frame.maxY + inset, width: UIScreen.main.bounds.width - 7 - 7, height: self.collectionView.contentSize.height)
+        
+        let fixedWidth = complaintsTextView.frame.size.width
+        let newSize = complaintsTextView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.greatestFiniteMagnitude))
+        complaintsTextView.frame.size = CGSize(width: 300, height: newSize.height)
 
         if viewModel!.hasAdditionalTextField {
-            heightOfDetailLabel = detailLabel.font.lineHeight + 3*inset
+            heightOfTextView = complaintsTextView.contentSize.height + 3*inset
             addAdditionalTextField()
         }
-        return  CGSize(width: UIScreen.main.bounds.width, height: self.headerView.frame.size.height + attributeLabelHeight + undelineHeight + inset + self.collectionView.contentSize.height + heightOfDetailLabel  + inset )
+        return  CGSize(width: UIScreen.main.bounds.width, height: self.headerView.frame.size.height + attributeLabelHeight + undelineHeight + inset + self.collectionView.contentSize.height + heightOfTextView  + inset )
     }
     
     required init?(coder: NSCoder) {

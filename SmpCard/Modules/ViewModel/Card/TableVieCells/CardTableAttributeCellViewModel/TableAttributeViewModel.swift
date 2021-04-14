@@ -17,6 +17,8 @@ class TableAttributeViewModel: TableAttributeViewModelType {
         return table.data.count
     }
     
+   
+    
     func  contentCellViewModel(row: Int) -> TableAttributeRowContentViewModelType? {
         return TableAttributeRowContentViewModel(rowData: table.data[row], title: table.rowsTitle?[row], _numberOfRow: row)
     }
@@ -30,6 +32,9 @@ class TableAttributeViewModel: TableAttributeViewModelType {
         if let _ = completeData.indicator {
             let indicatorItem = IndicatorItem()
             completeData.indicator!.append(indicatorItem)
+            table.data.last!.forEach {
+                completeData.indicator!.last!.data[$0!.subattribut!] = $0!.text
+            }
         } else {
             completeData.indicator = Array(repeating: IndicatorItem(), count: 2)
         }
@@ -40,13 +45,13 @@ class TableAttributeViewModel: TableAttributeViewModelType {
         switch tableAttribute {
         case .indicator:
             if let _ = completeData.indicator {
-                completeData.indicator![row].data[table.data[row][column]!.subattribut] = data
+                completeData.indicator![row].data[table.data[row][column]!.subattribut] =  data.isEmpty ? nil : data
             } else {
                 completeData.indicator = [IndicatorItem()]
-                completeData.indicator![row].data[table.data[row][column]!.subattribut] = data
+                completeData.indicator![row].data[table.data[row][column]!.subattribut] = data.isEmpty ? nil : data
             }
         default:
-            completeData.completeTextData[table.data[row][column]!.subattribut] = data
+            completeData.completeTextData[table.data[row][column]!.subattribut] = data.isEmpty ? nil : data
         }
     }
     

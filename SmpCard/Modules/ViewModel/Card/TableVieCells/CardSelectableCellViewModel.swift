@@ -40,6 +40,15 @@ class CardSelectableCellViewModel: CardSelectableCellViewModelType {
         completeData.completeTextData[textRow.subattribut] = data
     }
     
+    func sendSelectableData(indexPathRow: Int) {
+        guard let subattr = selectableAttribute.selectableRows?.data[indexPathRow].subattribut else {return}
+        
+        if  completeData.completeSelectableData.contains(subattr) {
+            completeData.completeSelectableData.remove(subattr)
+        } else {
+            completeData.completeSelectableData.insert(subattr)
+        }
+    }
     var hasAdditionalTextField: Bool {
         return selectableAttribute.textRow != nil
     }

@@ -36,7 +36,7 @@ class PatternsTableViewCell: UITableViewCell {
         selectionStyle = .none
         self.contentView.addSubview(diagnosisLabel)
    
-        self.backgroundColor = #colorLiteral(red: 0.1566217244, green: 0.1594332755, blue: 0.1943226159, alpha: 1)
+        self.backgroundColor = #colorLiteral(red: 0.09766118973, green: 0.09708828479, blue: 0.09810651094, alpha: 1)
         diagnosisLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20).isActive = true
         diagnosisLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20).isActive = true
 //        diagnosisLabel.heightAnchor.constraint(equalToConstant: 100).isActive = true

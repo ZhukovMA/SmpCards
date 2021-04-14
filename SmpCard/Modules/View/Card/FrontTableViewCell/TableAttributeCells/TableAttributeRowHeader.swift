@@ -22,7 +22,7 @@ class TableAttributeRowHeader: UITableViewCell {
     
     private func makeRow()  {
         var textFieldWidth: CGFloat!
-        let optimalWidth =  UIScreen.main.bounds.width < 400 ?  UIScreen.main.bounds.width : 500
+        let optimalWidth =  UIScreen.main.bounds.width < 400 ?  UIScreen.main.bounds.width : 400
         if viewModel!.hasRowsTitles {
             textFieldWidth = (optimalWidth - 150)/CGFloat(viewModel!.numberOfColumn)
         } else {

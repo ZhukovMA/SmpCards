@@ -66,13 +66,12 @@ class MainViewModel: MainViewModelType, PatternsViewModelDelegate, CardViewModel
         var diagnosis:String?
         var name:String?
         
-        //vvvvvvvvvvvvvvvvvvv
-        if historyCompleteData.data[indexPath.row].indicator != nil {
-            if historyCompleteData.data[indexPath.row].indicator!.count > 3 &&  historyCompleteData.data[indexPath.row].indicator![2].data.count > 3 {
-            print(1)
-            }
-        }
-        //^^^^^^^^^^^^^^^^^^^
+//        //vvvvvvvvvvvvvvvvvvv
+//        if historyCompleteData.data[indexPath.row].indicator != nil {
+//            if historyCompleteData.data[indexPath.row].indicator!.count > 3 &&  historyCompleteData.data[indexPath.row].indicator![2].data.count > 3 {
+//            }
+//        }
+//        //^^^^^^^^^^^^^^^^^^^
         
         if let diagnosisInSelected = isFiltering ? filteredProfiles.data[indexPath.row].completeTextData[.diagnose] : historyCompleteData.data[indexPath.row].completeTextData[.diagnose] {
             diagnosis = diagnosisInSelected

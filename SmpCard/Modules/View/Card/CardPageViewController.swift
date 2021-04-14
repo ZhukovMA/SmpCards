@@ -61,6 +61,12 @@ class CardPageViewController: UIViewController, FrontViewControllerDelegate {
         }
     }
 
+    var statusBarView: UIView = {
+        let view = UIView()
+        view.backgroundColor = #colorLiteral(red: 0.09766118973, green: 0.09708828479, blue: 0.09810651094, alpha: 1)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
 
     
     lazy var pageBar: PageIndicator = {
@@ -87,13 +93,16 @@ class CardPageViewController: UIViewController, FrontViewControllerDelegate {
         if index == 9 {
             collectionView.frame.size.width = view.bounds.width
         }
-        
-        
     }
+
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         pageBar.frame = CGRect(x: 0, y: view.layoutMargins.top, width: view.frame.width, height: 30)
+        if let cell = pageBar.cellForItem(at: IndexPath(row: 0, section: 0)) as? PageIndicatorBarCell {
+            cell.label.textColor =  cell.label.textColor.withAlphaComponent(1)
+        }
+
         collectionView.frame.origin.y = view.layoutMargins.top + 30
         collectionView.frame.size.height = view.safeAreaLayoutGuide.layoutFrame.height
     }
@@ -103,12 +112,19 @@ class CardPageViewController: UIViewController, FrontViewControllerDelegate {
         super.viewDidLoad()
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
+        view.addSubview(statusBarView)
+        statusBarView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        statusBarView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        statusBarView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        statusBarView.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        
         collectionView = CustomCollectionView(frame: CGRect(x: 0, y: 1, width: view.frame.width*10, height: 1), collectionViewLayout: layout)
 
         collectionView.isPagingEnabled = true
         view.addSubview(collectionView)
         collectionView.register(PageTableViewCell.self, forCellWithReuseIdentifier: "CellId")
         view.backgroundColor = #colorLiteral(red: 0.06691879034, green: 0.06652892381, blue: 0.06722356379, alpha: 1)
+        collectionView.backgroundColor = #colorLiteral(red: 0.06691879034, green: 0.06652892381, blue: 0.06722356379, alpha: 1)
         collectionView.delegate = self
         collectionView.dataSource = self
         view.addSubview(pageBar)
@@ -189,7 +205,6 @@ extension CardPageViewController : UIScrollViewDelegate{
         guard  let currentPageBarCell = pageBar.cellForItem(at: IndexPath(row: currentIndexPathRow, section: 0)) as? PageIndicatorBarCell  else { return }
         if startContentOffsetX == nil  {
             startContentOffsetX = pageBar.contentOffset.x
-
         }
         percent = _percent
         
@@ -272,22 +287,3 @@ extension CardPageViewController: UICollectionViewDelegate, UICollectionViewData
     }
 }
 
-extension CardPageViewController {
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        coordinator.animate(alongsideTransition: { (UIViewControllerTransitionCoordinatorContext) -> Void in
-            let orient = UIApplication.shared.windows.first?.windowScene?.interfaceOrientation
-            switch orient {
-            case .portrait:
-                print("Portrait")
-            case .landscapeLeft,.landscapeRight :
-                print("Landscape")
-            default:
-                print("Anything But Portrait")
-            }
-        }, completion: { (UIViewControllerTransitionCoordinatorContext) -> Void in
-            //refresh view once rotation is completed not in will transition as it returns incorrect frame size.Refresh here
-
-        })
-        super.viewWillTransition(to: size, with: coordinator)
-    }
-}

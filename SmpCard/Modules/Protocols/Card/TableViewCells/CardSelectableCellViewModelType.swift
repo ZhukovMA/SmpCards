@@ -17,5 +17,6 @@ protocol CardSelectableCellViewModelType: CardTableViewCellViewModelType {
     func sendData(data: inout String)
     func getLimitOfText() -> Int?
     var hasAdditionalTextField: Bool {get}
-
+    func sendSelectableData(indexPathRow: Int)
+    
 }
