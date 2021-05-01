@@ -16,7 +16,6 @@
 		580825F126128FD6002CC90C /* TableAttributeRowHeaderViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580825F026128FD6002CC90C /* TableAttributeRowHeaderViewModelType.swift */; };
 		580825F426129020002CC90C /* TableAttributeRowHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580825F326129020002CC90C /* TableAttributeRowHeaderViewModel.swift */; };
 		580B3A0D26275EF500019746 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580B3A0C26275EF500019746 /* CustomNavigationController.swift */; };
-		580B3A24262760F300019746 /* Titles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580B3A23262760F300019746 /* Titles.swift */; };
 		581179AD25F2C029001BE227 /* CardSelectableCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581179AC25F2C029001BE227 /* CardSelectableCellViewModel.swift */; };
 		581179B125F2C062001BE227 /* CardSelectableCellViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581179B025F2C062001BE227 /* CardSelectableCellViewModelType.swift */; };
 		581D4F2525E2A433001013FF /* CardCellViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581D4F2425E2A433001013FF /* CardCellViewModelType.swift */; };
@@ -62,7 +61,7 @@
 		CCA5C8672579E30300BFEF91 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCA5C8662579E30300BFEF91 /* Assets.xcassets */; };
 		CCA5C86A2579E30300BFEF91 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCA5C8682579E30300BFEF91 /* LaunchScreen.storyboard */; };
 		CCA5C8752579E30300BFEF91 /* SmpCardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA5C8742579E30300BFEF91 /* SmpCardTests.swift */; };
-		CCA5C8882579E51B00BFEF91 /* Title+Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA5C8862579E51B00BFEF91 /* Title+Frame.swift */; };
+		CCA5C8882579E51B00BFEF91 /* DataCollections.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA5C8862579E51B00BFEF91 /* DataCollections.swift */; };
 		CCA5C8892579E51B00BFEF91 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA5C8872579E51B00BFEF91 /* DataManager.swift */; };
 		CCA5C88F2579E52300BFEF91 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA5C88C2579E52300BFEF91 /* Card.swift */; };
 		CCA5C8A32579E52C00BFEF91 /* PerfomanceViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA5C8912579E52C00BFEF91 /* PerfomanceViewModelType.swift */; };
@@ -123,7 +122,6 @@
 		580825F026128FD6002CC90C /* TableAttributeRowHeaderViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableAttributeRowHeaderViewModelType.swift; sourceTree = "<group>"; };
 		580825F326129020002CC90C /* TableAttributeRowHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableAttributeRowHeaderViewModel.swift; sourceTree = "<group>"; };
 		580B3A0C26275EF500019746 /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
-		580B3A23262760F300019746 /* Titles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Titles.swift; sourceTree = "<group>"; };
 		581179AC25F2C029001BE227 /* CardSelectableCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSelectableCellViewModel.swift; sourceTree = "<group>"; };
 		581179B025F2C062001BE227 /* CardSelectableCellViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSelectableCellViewModelType.swift; sourceTree = "<group>"; };
 		581D4F2425E2A433001013FF /* CardCellViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCellViewModelType.swift; sourceTree = "<group>"; };
@@ -172,7 +170,7 @@
 		CCA5C8702579E30300BFEF91 /* SmpCardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmpCardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCA5C8742579E30300BFEF91 /* SmpCardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmpCardTests.swift; sourceTree = "<group>"; };
 		CCA5C8762579E30300BFEF91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CCA5C8862579E51B00BFEF91 /* Title+Frame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Title+Frame.swift"; sourceTree = "<group>"; };
+		CCA5C8862579E51B00BFEF91 /* DataCollections.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataCollections.swift; sourceTree = "<group>"; };
 		CCA5C8872579E51B00BFEF91 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		CCA5C88C2579E52300BFEF91 /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		CCA5C8912579E52C00BFEF91 /* PerfomanceViewModelType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerfomanceViewModelType.swift; sourceTree = "<group>"; };
@@ -432,8 +430,8 @@
 			children = (
 				CC45E83F25B71382009953E9 /* StoreManager */,
 				CCA5C8812579E35400BFEF91 /* DataManager */,
-				CC3C283B259CEA7E009E58A0 /* Auth */,
 				CCA5C8822579E36200BFEF91 /* Model */,
+				CC3C283B259CEA7E009E58A0 /* Auth */,
 				CCA5C8832579E36E00BFEF91 /* Protocols */,
 				CCA5C8842579E37A00BFEF91 /* ViewModel */,
 				CCA5C8852579E38700BFEF91 /* View */,
@@ -445,8 +443,7 @@
 			isa = PBXGroup;
 			children = (
 				CCA5C8872579E51B00BFEF91 /* DataManager.swift */,
-				CCA5C8862579E51B00BFEF91 /* Title+Frame.swift */,
-				580B3A23262760F300019746 /* Titles.swift */,
+				CCA5C8862579E51B00BFEF91 /* DataCollections.swift */,
 			);
 			path = DataManager;
 			sourceTree = "<group>";
@@ -815,7 +812,6 @@
 				CCA5C8AA2579E52C00BFEF91 /* PatternsCellViewModelType.swift in Sources */,
 				CCA5C8DD2579E53600BFEF91 /* PreviewViewModel.swift in Sources */,
 				58D226852625D062004E7008 /* FrontViewController.swift in Sources */,
-				580B3A24262760F300019746 /* Titles.swift in Sources */,
 				58D2269C2625D095004E7008 /* CollectionViewFlowCenterLayout.swift in Sources */,
 				CCA5C9072579E53D00BFEF91 /* MainViewController.swift in Sources */,
 				58D226932625D08E004E7008 /* TableAttributeRowContent.swift in Sources */,
@@ -829,7 +825,7 @@
 				589999F22608788F00D362A1 /* Subattribute.swift in Sources */,
 				CC5913A82597B57F00700A96 /* FirestoreManager.swift in Sources */,
 				CCA5C8602579E30200BFEF91 /* SceneDelegate.swift in Sources */,
-				CCA5C8882579E51B00BFEF91 /* Title+Frame.swift in Sources */,
+				CCA5C8882579E51B00BFEF91 /* DataCollections.swift in Sources */,
 				CCA5C9042579E53D00BFEF91 /* PatternsTableViewController.swift in Sources */,
 				CCA5C9082579E53D00BFEF91 /* MainTableViewCell.swift in Sources */,
 				CCA5C8A52579E52C00BFEF91 /* PreviewViewModelType.swift in Sources */,

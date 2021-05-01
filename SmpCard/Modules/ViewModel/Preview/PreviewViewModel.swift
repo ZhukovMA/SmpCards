@@ -93,15 +93,11 @@ class PreviewViewModel: PreviewViewModelType {
     }
     
     private func getFrames(_ subattr: SubAttribute) -> [FrameOfSubAttribute]? {
-        if let frame = DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: subattr, requestOfSubattributeData: .frame),
-            let completeFrame = frame as? [FrameOfSubAttribute] {
-            return completeFrame
-        }
-        return nil
+        return DataCollections.frames[subattr]
     }
     
     private func getFullTextOfCompleteSelectableData(frame:FrameOfSubAttribute, subAttribute: SubAttribute) -> String {
-        if subAttribute == .breathFeel || subAttribute == .breathNotFeel || subAttribute == .stomachIsNotPainful, let text = DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: subAttribute, requestOfSubattributeData: .title) as? String {
+        if subAttribute == .breathFeel || subAttribute == .breathNotFeel || subAttribute == .stomachIsNotPainful, let text = DataCollections.titles[subAttribute] {
             return text
         } else {
             return "V"

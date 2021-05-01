@@ -59,7 +59,7 @@ class DataManager {
             let consumption: [SubAttribute] = [.masks, .gloves, .napkins, .syringe, .siz, .catheterPerefirichesky, .binty, .glukometrya, .infusionSystem, .consumptionText]
             consumption.forEach{  (subAttribute) in
                 if  let text = completeData.completeTextData[subAttribute] {
-                    if let title = DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: subAttribute, requestOfSubattributeData: .title) as? String {
+                    if let title = DataCollections.titles[subAttribute] {
                         if result.isEmpty {
                             result += title + ": " + text
                         } else  {
@@ -120,9 +120,6 @@ class DataManager {
         result += "\(time ?? "\t")\t   \(ad ?? "\t")\t \(chss ?? "\t")   \t \(chdd ?? "\t")    \t \(spo ?? "\t")   \t\(temp ?? "    ")\n"
     }
     
-    
-    
-    
     func makeTable(tableAttribute: TableAttribute, completeData: CompleteData) {
         var  table = [[SubAttribute]]()
         switch tableAttribute.attribute {
@@ -132,9 +129,9 @@ class DataManager {
             let columnsTitles = ["До", "После"]
             tableAttribute.table.columnsTitle = columnsTitles
             tableAttribute.table.data = Array(repeating: Array(repeating: TextRowOfSubattribute(), count: columnsTitles.count), count: rowTitle.count)
-            table.append( [.adBeforeMedHelp, .adAfterMedHelp])
-            table.append( [.chssBeforeMedHelp, .chssAfterMedHelp])
-            table.append( [.pBeforeMedHelp, .pAfterMedHelp,])
+            table.append([.adBeforeMedHelp, .adAfterMedHelp])
+            table.append([.chssBeforeMedHelp, .chssAfterMedHelp])
+            table.append([.pBeforeMedHelp, .pAfterMedHelp,])
             table.append([.chddBeforeMedHelp,.chddAfterMedHelp])
             table.append([.tBeforeMedHelp, .tAfterMedHelp])
             table.append([.spOBeforeMedHelp, .spOAfterMedHelp])
@@ -149,8 +146,7 @@ class DataManager {
             let rows: [SubAttribute] = [.masks, .gloves, .napkins, .syringe, .siz, .catheterPerefirichesky, .binty, .glukometrya, .infusionSystem,]
             rows.forEach {
                 table.append([$0])
-            }
-                                                                                                                
+            }                                                                                          
         case .indicator:
             let columnsTitles = ["Время", "Ад", "ЧСС", "ЧДД", "SpO", "T"]
             tableAttribute.table.columnsTitle = columnsTitles
@@ -171,10 +167,7 @@ class DataManager {
                 tableAttribute.table.data[rowIndex][columnsIndex] = makeTextRow(subAttribute: table[rowIndex][columnsIndex], completeData: completeData)
             }
         }
-        
     }
-
-
     
     func getSelectableRows(selectableAttribute: SelectableAttributeEnum, completeData: CompleteData) -> (SelectRowsOfSubattribute, TextRowOfSubattribute?) {
         let selectRows = SelectRowsOfSubattribute()
@@ -386,8 +379,7 @@ class DataManager {
     }
     
     private func makeSelectableRow(subAttribute: SubAttribute, completeData: CompleteData) -> SelectRowOfSubattribute {
-        return SelectRowOfSubattribute(title: DataManager.shared.getSubAttributeTitleOrFrame(subAttribute: subAttribute,
-                                                                                             requestOfSubattributeData: .title) as! String,
+        return SelectRowOfSubattribute(title: DataCollections.titles[subAttribute] ?? "",
                                        subattribut: subAttribute,
                                        isSelected: completeData.completeSelectableData.contains(subAttribute))
     }

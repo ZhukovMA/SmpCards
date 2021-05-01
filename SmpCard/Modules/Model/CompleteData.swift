@@ -29,15 +29,7 @@ class CompleteData: Codable {
     
     init() {}
     
-//    var indicatorIsEmpty: Bool {
-//        var result = true
-//        if let indicator = indicator {
-//            indicator.forEach { indicatorItem in
-//                if !indicatorItem.data.isEmpty {
-//                    result = false
-//                }
-//            }
-//        }
-//        return result
-//    }
+    init(d: Decodable) {
+        
+    }
 }

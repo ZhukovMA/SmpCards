@@ -58,7 +58,12 @@ class FirestoreManager: CloudStorage {
         nextLetter(str: &_nextLetter)
         if let currentUser = Auth.auth().currentUser?.uid {
             let attribute = storageType == .history ? "name" : "diagnose"
-            firestore.collection("users/\(currentUser)/\(storageType.rawValue)").whereField(attribute, isGreaterThanOrEqualTo: letter).whereField(attribute, isLessThan: _nextLetter).getDocuments { (query, error) in
+            firestore.collection("users/\(currentUser)/\(storageType.rawValue)")
+                .whereField(attribute, isGreaterThanOrEqualTo: letter)
+                .whereField(attribute, isLessThan: _nextLetter)
+                .order(by: "name", descending: false)
+                .getDocuments
+                { (query, error) in
                 if let _error = error {
                     completion(.failure(_error))
                 }

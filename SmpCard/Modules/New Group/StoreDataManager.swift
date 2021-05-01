@@ -6,7 +6,7 @@
 //  Copyright © 2020 SMP. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import FirebaseFirestoreSwift
 
 enum StorageType: String {
