@@ -46,6 +46,12 @@ class TableAttributeViewModel: TableAttributeViewModelType {
         case .indicator:
             if let _ = completeData.indicator {
                 completeData.indicator![row].data[table.data[row][column]!.subattribut] =  data.isEmpty ? nil : data
+                if completeData.indicator![row].data.isEmpty {
+                    completeData.indicator!.remove(at: row)
+                    if completeData.indicator!.count == 0 {
+                        completeData.indicator = nil
+                    }
+                }
             } else {
                 completeData.indicator = [IndicatorItem()]
                 completeData.indicator![row].data[table.data[row][column]!.subattribut] = data.isEmpty ? nil : data

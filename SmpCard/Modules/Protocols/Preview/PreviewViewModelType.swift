@@ -9,7 +9,7 @@
 import Foundation
 
 protocol PreviewViewModelType {
-    func getNextDate() -> NextData?
+    func getNextData() -> NextData?
     func getEmptyPDFUrl() -> URL 
     func handleDesapear()
     func getTempFileURL() -> URL

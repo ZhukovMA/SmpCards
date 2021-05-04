@@ -43,7 +43,7 @@ class PreviewViewController: UIViewController {
         let textColor = UIColor.black
         let paragraphStyle:NSMutableParagraphStyle = NSMutableParagraphStyle.default.mutableCopy() as! NSMutableParagraphStyle
 
-        while let nextData = viewModel?.getNextDate() {
+        while let nextData = viewModel?.getNextData() {
             if nextData.dataWithFrame.isEmpty {
                 continue
             }

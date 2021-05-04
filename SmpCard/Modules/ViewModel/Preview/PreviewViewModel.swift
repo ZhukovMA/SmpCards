@@ -55,7 +55,7 @@ class PreviewViewModel: PreviewViewModelType {
     var originalCompleteData: CompleteData?
     var tempPDFUrl: URL!
     
-    func getNextDate() ->  NextData? {
+    func getNextData() ->  NextData? {
         var nextData: NextData!
         if !completeData.completeSelectableData.isEmpty {
             if let data = completeData.completeSelectableData.first {

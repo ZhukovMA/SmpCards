@@ -91,7 +91,6 @@ class CardAttributeItem: UIViewController , Output, UpdateTable {
         tableView.rowHeight = UITableView.automaticDimension;
         tableView.estimatedRowHeight = 44.0;
         tableView.separatorColor = #colorLiteral(red: 0.09527605027, green: 0.09529984742, blue: 0.09527292103, alpha: 1)
-//        tableView.tableHeaderView = UIView(frame: CGRect(x: CGFloat.leastNonzeroMagnitude, y: CGFloat.leastNonzeroMagnitude, width: tableView.bounds.size.width, height: 10))
         tableView.dataSource = self
 
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
